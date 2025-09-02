@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "rpasilicontech",
+  "private_key_id": "e65305a9351110dbe7cfee95aca9daf48af8d92e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCHfKaXBAZki/+n\n6WuUPE77bHa1IkQ5UYmAkyv8+tMP2gxfAvgTZzgX+sjp0SSZwkvuHYj6tvnS7UN0\nXHx9sM/3dpEECKxWwU/FVrThYTOr1dWBIHZ1uYcGulTk0g7O92nYH6U0I8mZlEbm\n8eDBJjTQfdsLx3mnKHHjeT6Hi4KP/A351N+UR0ptPrLwv/fcoOrsgZ6ai/+5DX5Y\nPQxB8mCdVjERUCx8W+jmJx2/hwSV+soFJCWV1rPZG+xM3L2pIeCBTqzcQufZ+56r\nCdkairKmIOGaKtWETC4xk7cLpFa9zRBQE/QpSfski53+DlTPS7VewJjFQmHqeJb1\nV+udPMKZAgMBAAECggEAAWqvxHd+m55Z84cKbXF9//BzHOzGGtu76actHnplXgHE\nZfMksr5xeARS0oMYQPvAcIJ79E2Y6ittLHI4VdYh+2JdgzwvlShBupYJn5IbiLbC\nz0fBuI4FyyLqqiPgkyoQjMaAvNbwKW92ZSOiKB+x2kl4OQGcFFl+npRqr3jDFwwi\nfuPyTe9fKwn57h3/VzMaCtBK+Qxn52PqbRG01/POott862Cde+4GKj92LtlKmxH8\nZEB/N+xlr8oMPLHlTMzeaMHWT9xUjKXZ5rr8DeMUOr7NmFWdvurCokA1YVjE2xk3\nnn52LPspKVB7uyA9C4TCewn5DH4TehqFp1Kd2usF2wKBgQC8s3XS11DcE1fRQud/\nGA/DTCLPzCrUsaddzKH71BH6X6ZpWEkDu7JuRRrgt38EehzJBxHmtes/+Ah7XxKp\n8T98WxOlMFfFqN5DGeDoKzy3HGRGnjOHRshlWhQs6ybsH8XaCoRZ685hz6cb2ALJ\nN+DBy5Tfjl4RBzNvVMrfSqkDbwKBgQC3zrRfYFQxdQF0AS0i0CGrTN3lzU3fdZdu\nSeJyUSsT/xtDApsteuDOF7ewwYza4RwHZ06fsY4iQvkO2onwWADeveDTtdbiBcgX\n2QAnfClK/CVMhdesLY/BvXIBTxd4o04uf1uTuWqC7WZqT+UnfmM4FgvAXMLuY0oG\n7ItDaNl2dwKBgAMLHe5dnKdABJ2SZ6tsFuz+cF1LnLE7gEiKAV7PZ87S9hsi2mKe\nB12x7aIMM5c95PL1EzvWWUn51SEwQlvNUUnPKjzyz6eXdqY8Z502/U6yvYdKC+i1\noovH7SVgUYtjY8yFeOb+X6DCOZ7AWCMorI5Tmz4TzL6XkCPOiUsaqCkvAoGAM/m7\nf4zZwfJ4Krl6bfG005+0z5qyfpHd9E3oPrM9HzZwGw7Nmpq4nw6N3umcTviA2IcZ\n8IZgzsdpbg3WG6SG+nVu8e7liJxh7HxsUr4FXzLVyUG/ruxjTkGnzz7yQCbNoNBa\nsPcpa0R+RWm6PuS6Yc26HPceGBLzh+mzp6gqdhkCgYAOrCVd8GCis4oqFn2pwj7q\nLzogsuEN3bprBZSkky1ypPjZeJeZjI1JUxflLas3ajIi+P8WtC6vFc+k+HlKP7K8\n2sfMutjl5zgG4czFDp9jci5QDeHjXA+YVwf2ang01L3GTuzZ8AkOsWkUTbKD3tnw\njsvQePovYKxxzNcIjeUhjA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "novoprojetosilicon@rpasilicontech.iam.gserviceaccount.com",
+  "client_id": "110562528076137019424",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/novoprojetosilicon%40rpasilicontech.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,2 @@
+01/09/2025 22:54:16 - INFO - Iniciando Processo de acompanhamento de entrega
+01/09/2025 22:54:16 - INFO - Erro ao tenta se conectar com google planilha
