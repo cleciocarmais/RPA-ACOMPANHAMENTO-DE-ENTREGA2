@@ -37,17 +37,17 @@ try:
         if df_planilha_online["Status"][index] == "":
             print(f"Processando linha N° {index}")
             logging.info(f"Processando linha N° {index}")
-            if df_planilha_online["Transportadora"][index] != "":
+            if df_planilha_online["Transportadora"][index] != 0:
                 if df_planilha_online["Status"][index] in ["", "NÃO COLETADO"]:
                     print("Pesquisa codigo na empresa")
 
                 if df_planilha_online["Status"][index] == "Não coletado":
                     print("Pesquisa novamente")
 
-                if df_planilha_online["Status"] == "EM ANDAMENTO":
+                if df_planilha_online["Status"][index] == "EM ANDAMENTO":
                     print("Fazer um if para verificar a data de entraga")
 
-                if df_planilha_online["Status"] == "Atrasado":
+                if df_planilha_online["Status"][index] == "Atrasado":
                     print("Enviar email para")
                     
 

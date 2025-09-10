@@ -1,13 +1,7 @@
-01/09/2025 22:57:22 - INFO - Iniciando Processo de acompanhamento de entrega
-01/09/2025 22:57:25 - INFO - Processando linha N° 281
-01/09/2025 22:57:25 - INFO - Pedido N° 144217 sem transportadora
-01/09/2025 22:57:25 - INFO - Enviando Email de aviso transportadora
-01/09/2025 22:57:29 - INFO - Processando linha N° 282
-01/09/2025 22:57:29 - INFO - Pedido N° 144220 sem transportadora
-01/09/2025 22:57:29 - INFO - Enviando Email de aviso transportadora
-01/09/2025 22:57:32 - INFO - Processando linha N° 283
-01/09/2025 22:57:32 - INFO - Pedido N° 144219 sem transportadora
-01/09/2025 22:57:32 - INFO - Enviando Email de aviso transportadora
-01/09/2025 22:57:35 - INFO - Processando linha N° 284
-01/09/2025 22:57:35 - INFO - Pedido N° 144225 sem transportadora
-01/09/2025 22:57:35 - INFO - Enviando Email de aviso transportadora
+09/09/2025 21:31:02 - INFO - Iniciando Processo de acompanhamento de entrega
+09/09/2025 21:31:05 - INFO - Processando linha N° 281
+09/09/2025 21:31:05 - INFO - Pedido N° 148778 sem transportadora
+09/09/2025 21:31:05 - INFO - Enviando Email de aviso transportadora
+09/09/2025 21:31:09 - INFO - Processando linha N° 282
+09/09/2025 21:31:09 - INFO - Pedido N° 148779 sem transportadora
+09/09/2025 21:31:09 - INFO - Enviando Email de aviso transportadora
