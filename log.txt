@@ -1,7 +1,2 @@
-09/09/2025 21:31:02 - INFO - Iniciando Processo de acompanhamento de entrega
-09/09/2025 21:31:05 - INFO - Processando linha N° 281
-09/09/2025 21:31:05 - INFO - Pedido N° 148778 sem transportadora
-09/09/2025 21:31:05 - INFO - Enviando Email de aviso transportadora
-09/09/2025 21:31:09 - INFO - Processando linha N° 282
-09/09/2025 21:31:09 - INFO - Pedido N° 148779 sem transportadora
-09/09/2025 21:31:09 - INFO - Enviando Email de aviso transportadora
+22/09/2025 17:04:53 - INFO - Iniciando Processo de acompanhamento de entrega
+22/09/2025 17:04:54 - INFO - Erro ao tenta se conectar com google planilha
