@@ -86,7 +86,7 @@ def brasspress(nota):
         return {previsao_entrega, Ultima_ocorrencia}
 
     else:
-        print("nenhum dados encontrado")
+        return {"","NAO COLETADA"}
 
 if __name__ == "__main__":
     print(brasspress(150038))

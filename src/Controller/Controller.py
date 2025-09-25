@@ -31,7 +31,7 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-
+    
     for index in range(len(df_planilha_online.index)):
 
         if df_planilha_online["Status"][index] == "":
