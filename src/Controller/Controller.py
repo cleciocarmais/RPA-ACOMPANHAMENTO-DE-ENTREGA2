@@ -37,7 +37,7 @@ try:
 
     df_transportadora = df_filtrado_por_nao_feitos[~df_filtrado_por_nao_feitos["Unidade de negócio"].isin(["Entrega Matriz", "Retira Matriz"])]    
 
-    ##Funcao de extrair planilhas
+    
     
   
 
