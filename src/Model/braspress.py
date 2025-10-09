@@ -41,7 +41,7 @@ def brasspress(nota):
     except:
         pass
 
-    p.alert("conde")
+
     p.sleep(2)
     navegador.switch_to.frame(navegador.find_element(By.XPATH, "/html/body/main/div/div/div/iframe"))
     WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input")))
@@ -63,30 +63,30 @@ def brasspress(nota):
 
     
     #CAMPO DATA INICIAL
-    # navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys("01/09/2025", Keys.ENTER)
-    # p.sleep(2)
-    # #CAMPO DATA FINAL
-    # navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys("19/09/2025",Keys.ENTER)
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[4]/div[2]/input").send_keys(nota)
+    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys("01/09/2025", Keys.ENTER)
+    p.sleep(2)
+    #CAMPO DATA FINAL
+    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys("19/09/2025",Keys.ENTER)
     p.sleep(2)
     #CAMPO DE RADIO 
+    
     navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[7]/div/label[1]").click()
-    p.alert(2)
+
     p.sleep(2)
     #CAMPO PESQUISA
+    elemento = navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button")
+
+    navegador.execute_script("arguments[0].scrollIntoView();", elemento)
+    p.alert("scroll")
     navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button").click()
     p.sleep(2)
     #Esperando carregar tabela
     WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table")))
-    items_tabela = navegador.find_elements(By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table/tbody/tr")
-    if len(items_tabela) > 0:
-        previsao_entrega = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table/tbody/tr[1]/td[9]").text
-        Ultima_ocorrencia = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table/tbody/tr[1]/td[11]").text
+    print("Exportanto os dados")
+    exporta_dados = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button")
+    navegador.execute_script("arguments[0].scrollIntoView();", exporta_dados)
+    navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button").click()
 
-        return {previsao_entrega, Ultima_ocorrencia}
-
-    else:
-        return {"","NAO COLETADA"}
 
 if __name__ == "__main__":
     print(brasspress(150038))

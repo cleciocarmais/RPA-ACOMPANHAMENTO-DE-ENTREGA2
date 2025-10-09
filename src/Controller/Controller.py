@@ -31,29 +31,17 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
+    df_filtrado_por_nao_feitos = df_planilha_online.loc[df_planilha_online['Finalizado'] == ""]
+
+    df_entraga_pela_matriz = df_filtrado_por_nao_feitos[df_filtrado_por_nao_feitos["Unidade de negócio"].isin(["Entrega Matriz", "Retira Matriz"])] 
+
+    df_transportadora = df_filtrado_por_nao_feitos[~df_filtrado_por_nao_feitos["Unidade de negócio"].isin(["Entrega Matriz", "Retira Matriz"])]    
+
+    ##Funcao de extrair planilhas
     
-    for index in range(len(df_planilha_online.index)):
+  
 
-        if df_planilha_online["Status"][index] == "":
-            print(f"Processando linha N° {index}")
-            logging.info(f"Processando linha N° {index}")
-            if df_planilha_online["Transportadora"][index] != "":
-                if str(df_planilha_online["Status"][index]).upper() in ["", "NÃO COLETADO"]:
-                    print("Pesquisa codigo na empresa")
-
-
-                if str(df_planilha_online["Status"][index]).upper() == "EM ANDAMENTO":
-                    print("Fazer um if para verificar a data de entraga")
-
-                if str(df_planilha_online["Status"][index]).upper() == "Atrasado":
-                    print("Enviar email para")
-                    
-
-            else:
-                print(f"Pedido N° {df_planilha_online["Nr. nota"][index]} sem transportadora")
-                logging.info(f"Pedido N° {df_planilha_online["Nr. nota"][index]} sem transportadora")
-                email_transportadora()
-                continue
+  
 
 
     

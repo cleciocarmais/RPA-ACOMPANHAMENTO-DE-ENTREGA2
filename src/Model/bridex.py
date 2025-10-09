@@ -9,6 +9,9 @@ import os
 import logging
 
 def transportadora_bridex(codigo):
+    status = {
+        "A caminho" : "em andamento"
+    }
     load_dotenv()
     #Abrindo arquivo de credencias:
     with open(os.getenv("CredenciaisCBirdex")) as file:
@@ -37,20 +40,12 @@ def transportadora_bridex(codigo):
     #BTN REMETENTE
     navegador.find_element(By.XPATH, "/html/body/div[1]/div[3]/div/div[1]/ul/li[1]/a").click()
     p.sleep(5)
-    #CAMPO PESQUISA
-    navegador.find_element(By.XPATH, "/html/body/div[1]/main/div/div/div/div/section[1]/div[1]/div[1]/div/input").send_keys(codigo, Keys.ENTER)
+    #CLIQUE EM DOWLOAD
+    navegador.find_element(By.XPATH, "/html/body/div[1]/main/div/div/div/div/div/button/a").click()
+    
+   
     p.sleep(4)
-    #Verficar se ouve algum retorno da pesquisa
+    
 
-    listas = navegador.find_elements(By.XPATH, "/html/body/div[1]/main/div/div/div/div/section[2]/div/div[2]/a")
-    if len(listas) > 0:
-        for x in listas:
-            print(x.text)
-        
-    else:
-        print("Objeto nao coletado")
-        logging.info("Objeto nao coletado")
-        return "Nao Coletado"
-    p.alert("ola")
 if __name__ == "__main__":
-    transportadora_bridex("00148724")
+    transportadora_bridex("8584")
