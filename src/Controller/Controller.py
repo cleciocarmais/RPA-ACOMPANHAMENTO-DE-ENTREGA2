@@ -3,10 +3,13 @@ import os
 import pandas as pd
 from traceback import format_exc
 from src.Model.emal_transportadora import email_transportadora
+from src.Model.armazenamento import pegar_dados,alterar_dados
 from dotenv import load_dotenv
+from datetime import date
 
 import gspread as gs
 import gspread_dataframe as gsd
+import pyautogui as p
 
 load_dotenv()
 
@@ -27,19 +30,42 @@ print("Iniciando Processo de acompanhamento de entrega")
 
 try:
     #CONECTANDO A PLANILHA
-    gc = gs.service_account(os.getenv("Crendeciais"))
-    workbook = gc.open_by_key(os.getenv("Id_planilha"))
-    sheet = workbook.worksheet("Desenvolvimento")
-    df_planilha_online = pd.DataFrame(sheet.get_all_records())
+    # gc = gs.service_account(os.getenv("Crendeciais"))
+    # workbook = gc.open_by_key(os.getenv("Id_planilha"))
+    # sheet = workbook.worksheet("Desenvolvimento")
+    # df_planilha_online = pd.DataFrame(sheet.get_all_records())
+    df_planilha_online = pd.read_excel(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\vamos.xlsx").fillna("")
+    
+
+
+
+
     df_filtrado_por_nao_feitos = df_planilha_online.loc[df_planilha_online['Finalizado'] == ""]
 
-    df_planilha_dados_Entragas = pd.read_excel("C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\planilha_rota_entregas.xlsx")
-    for dp in range(len[df_filtrado_por_nao_feitos.index]):
-        df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == dp["Nr. nota"][dp]]
+    df_planilha_dados_Entragas = pd.read_excel(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\planilha_rota_entregas.xlsx")
+    data_atual = date.today().strftime("%d/%m/%Y")
+    print(df_planilha_dados_Entragas)
+    for dp in range(len(df_filtrado_por_nao_feitos.index)):
+        p.alert(df_filtrado_por_nao_feitos["Nr. nota"][dp])
+        df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_filtrado_por_nao_feitos["Nr. nota"][dp]]
+        print(df_busca)
         if not df_busca.empty:
-            print("tem")
+            print("entrou aqui")
+            transportadora = df_busca["Transportadora"][0]
+            previsao_entrega = df_busca["previsaoEntrega"][0]
+            data_entrega = df_busca['dataEntrega'][0]
+            if previsao_entrega == "":
+                print("sem previsao de entrega")
+            else:
+                
+                
+            
+
+        
         else:
-            print("nao tem ")
+            df_filtrado_por_nao_feitos["Transportadora"][dp] = "NÃO ENCONTRADO"
+            alterar_dados("sem_transportadoreS", df_filtrado_por_nao_feitos["Nr. nota"][dp])
+
 
 
 

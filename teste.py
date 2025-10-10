@@ -19,6 +19,9 @@
 import pandas as pd
 
 
-planilha_rota_entregas = pd.read_excel("planilha_rota_entregas.xlsx")
-planilha_online = pd.read_excel("vamos.xlsx")
+# planilha_rota_entregas = pd.read_excel("planilha_rota_entregas.xlsx")
+# planilha_online = pd.read_excel("vamos.xlsx")
 
+df_planilha_dados_Entragas = pd.read_excel(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\planilha_rota_entregas.xlsx")
+df = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == 149966]
+print(df)
