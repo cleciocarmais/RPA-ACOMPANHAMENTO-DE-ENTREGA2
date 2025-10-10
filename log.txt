@@ -1,1 +1,2 @@
-07/10/2025 22:41:43 - INFO - Iniciando Processo de acompanhamento de entrega
+10/10/2025 10:14:17 - INFO - Iniciando Processo de acompanhamento de entrega
+10/10/2025 10:14:18 - INFO - Erro ao tenta se conectar com google planilha

@@ -9,7 +9,8 @@ def tratar_planilhas():
     #LENDO PLANILHA BRINX
     df_bridex = pd.read_csv(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\brindx\MJ_5.csv", delimiter=";")
     #Filtrar colunas desejadas 
-    df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia"]]
+    df_bridex["Transportadora"] = "bridex"
+    df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
     #Tratando coluna notaFiscal
     df_bridex["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex["notaFiscal"]]
@@ -19,8 +20,9 @@ def tratar_planilhas():
 
     df_braspres = df_braspres[:index2]
     df_braspres["NOTA FISCAL"] = [str(x.replace(",","")) for x in df_braspres["NOTA FISCAL"]]
+    df_braspres["Transportadora"] = "braspres"
 
-    df_braspres = df_braspres[["NOTA FISCAL","PREVISÃO DE ENTREGA ORIGINAL","PREVISÃO DE ENTREGA","ULTIMA OCORRÊNCIA"]]
+    df_braspres = df_braspres[["NOTA FISCAL","PREVISÃO DE ENTREGA ORIGINAL","PREVISÃO DE ENTREGA","ULTIMA OCORRÊNCIA","Transportadora"]]
     df_braspres = df_braspres.rename(columns={
         "NOTA FISCAL" : "notaFiscal",
         "PREVISÃO DE ENTREGA ORIGINAL" :"previsaoEntrega",
