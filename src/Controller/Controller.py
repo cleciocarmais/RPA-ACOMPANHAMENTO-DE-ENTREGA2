@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from traceback import format_exc
 from src.Model.emal_transportadora import email_transportadora
-from src.Model.armazenamento import pegar_dados,alterar_dados
+from src.Model.armazenamento import alterar_dados, pegar_dados
 from dotenv import load_dotenv
 from datetime import date
 
@@ -28,43 +28,56 @@ logging.basicConfig(
 logging.info("Iniciando Processo de acompanhamento de entrega")
 print("Iniciando Processo de acompanhamento de entrega")
 
+df_planilha_online = pd.read_excel(f"{os.getenv('RAIZ')}vamos.xlsx").fillna("")
 try:
     #CONECTANDO A PLANILHA
     # gc = gs.service_account(os.getenv("Crendeciais"))
     # workbook = gc.open_by_key(os.getenv("Id_planilha"))
     # sheet = workbook.worksheet("Desenvolvimento")
     # df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    df_planilha_online = pd.read_excel(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\vamos.xlsx").fillna("")
     
 
 
 
 
-    df_filtrado_por_nao_feitos = df_planilha_online.loc[df_planilha_online['Finalizado'] == ""]
+    
 
-    df_planilha_dados_Entragas = pd.read_excel(r"C:\RPA\RPA-ACOMPANHAMENTO-DE-ENTREGA2\planilha_rota_entregas.xlsx")
+    df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
     data_atual = date.today().strftime("%d/%m/%Y")
     print(df_planilha_dados_Entragas)
-    for dp in range(len(df_filtrado_por_nao_feitos.index)):
-        p.alert(df_filtrado_por_nao_feitos["Nr. nota"][dp])
-        df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_filtrado_por_nao_feitos["Nr. nota"][dp]]
-        print(df_busca)
+    for dp in range(len(df_planilha_online.index)):
+     
+        #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
+        df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]]
+        
+        
         if not df_busca.empty:
-            print("entrou aqui")
-            transportadora = df_busca["Transportadora"][0]
-            previsao_entrega = df_busca["previsaoEntrega"][0]
-            data_entrega = df_busca['dataEntrega'][0]
-            if previsao_entrega == "":
-                print("sem previsao de entrega")
+            if df_planilha_online['Previsão de Chegada'][dp] != "":
+
+                if df_planilha_online["Previsão de Chegada"][dp] == data_atual:
+                    if df_busca['dataEntrega'][0] ==  df_planilha_online["Previsão de Chegada"][dp]:
+                        print("produto chegou legal")
+                    else:
+                        print("produto nao chegou")
             else:
-                
-                
-            
+                p.alert("OLa mundo")
+                df_planilha_online["Previsão de Chegada"][dp] == df_busca["previsaoEntrega"][0]
+                df_planilha_online["Status"] = df_busca['nomeOcorrencia'][0]
+
+    
+
+
+            # transportadora = df_busca["Transportadora"][0]
+            # previsao_entrega = df_busca["previsaoEntrega"][0]
+            # data_entrega = df_busca['dataEntrega'][0]
+            # ultima_ocorrencia = df_busca['nomeOcorrencia'][0]
+
 
         
         else:
-            df_filtrado_por_nao_feitos["Transportadora"][dp] = "NÃO ENCONTRADO"
-            alterar_dados("sem_transportadoreS", df_filtrado_por_nao_feitos["Nr. nota"][dp])
+            df_planilha_online["Transportadora"][dp] = "NÃO ENCONTRADO"
+            alterar_dados("sem_transportadoreS", f"{df_planilha_online['Nr. nota'][dp]}")
+
 
 
 
@@ -94,3 +107,6 @@ except:
     print("Erro ao tenta se conectar com google planilha")
     logging.info("Erro ao tenta se conectar com google planilha")
     print(format_exc())
+
+finally:
+    df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)
