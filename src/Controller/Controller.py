@@ -46,31 +46,33 @@ try:
     data_atual = date.today().strftime("%d/%m/%Y")
     print(df_planilha_dados_Entragas)
     for dp in range(len(df_planilha_online.index)):
+        if df_planilha_online["Finalizado"][dp] == "":
      
-        #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
-        df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]]
+            #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
+            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]]
+            
+            
+            if not df_busca.empty:
+                if df_planilha_online['Previsão de Chegada'][dp] != "":
+                 
+
+                    if df_planilha_online["Previsão de Chegada"][dp] == data_atual:
+                        if df_busca['dataEntrega'][0] ==  df_planilha_online["Previsão de Chegada"][dp]:
+                            print("produto chegou legal")
+                        else:
+                            print("produto nao chegou")
+                else:
+                    p.alert("OLa mundo")
+                    df_planilha_online["Previsão de Chegada"][dp] == df_busca["previsaoEntrega"][0]
+                    df_planilha_online["Status"] = df_busca['nomeOcorrencia'][0]
+
         
-        
-        if not df_busca.empty:
-            if df_planilha_online['Previsão de Chegada'][dp] != "":
-
-                if df_planilha_online["Previsão de Chegada"][dp] == data_atual:
-                    if df_busca['dataEntrega'][0] ==  df_planilha_online["Previsão de Chegada"][dp]:
-                        print("produto chegou legal")
-                    else:
-                        print("produto nao chegou")
-            else:
-                p.alert("OLa mundo")
-                df_planilha_online["Previsão de Chegada"][dp] == df_busca["previsaoEntrega"][0]
-                df_planilha_online["Status"] = df_busca['nomeOcorrencia'][0]
-
-    
 
 
-            # transportadora = df_busca["Transportadora"][0]
-            # previsao_entrega = df_busca["previsaoEntrega"][0]
-            # data_entrega = df_busca['dataEntrega'][0]
-            # ultima_ocorrencia = df_busca['nomeOcorrencia'][0]
+                # transportadora = df_busca["Transportadora"][0]
+                # previsao_entrega = df_busca["previsaoEntrega"][0]
+                # data_entrega = df_busca['dataEntrega'][0]
+                # ultima_ocorrencia = df_busca['nomeOcorrencia'][0]
 
 
         
