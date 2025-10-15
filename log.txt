@@ -1,1 +1,4 @@
-11/10/2025 10:34:10 - INFO - Iniciando Processo de acompanhamento de entrega
+14/10/2025 23:09:04 - INFO - Iniciando Processo de acompanhamento de entrega
+14/10/2025 23:09:05 - INFO - Linha : 0
+14/10/2025 23:09:05 - INFO - Verificando Previsao de Entrega
+14/10/2025 23:09:05 - INFO - Pedido atrasado

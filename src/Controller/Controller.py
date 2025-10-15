@@ -5,7 +5,7 @@ from traceback import format_exc
 from src.Model.emal_transportadora import email_transportadora
 from src.Model.armazenamento import alterar_dados, pegar_dados
 from dotenv import load_dotenv
-from datetime import date
+from datetime import date, datetime
 
 import gspread as gs
 import gspread_dataframe as gsd
@@ -43,42 +43,61 @@ try:
     
 
     df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
-    data_atual = date.today().strftime("%d/%m/%Y")
-    print(df_planilha_dados_Entragas)
+    data_atual = date.today()
+   
+
     for dp in range(len(df_planilha_online.index)):
         if df_planilha_online["Finalizado"][dp] == "":
-     
+            print(f"LInha : {dp}")
+            logging.info(f"Linha : {dp}")
             #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
-            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]]
-            
-            
+            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")
+            #VEIRIFICAR SE PLANILHA NÃO ESTAR VAZIA
             if not df_busca.empty:
+               
+      
+                data_previsao =  df_planilha_online["Previsão de Chegada"][dp]
+                data_previsao = datetime.strptime(data_previsao,"%d/%m/%Y").date()
+               
+
+                #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
                 if df_planilha_online['Previsão de Chegada'][dp] != "":
-                 
-
-                    if df_planilha_online["Previsão de Chegada"][dp] == data_atual:
-                        if df_busca['dataEntrega'][0] ==  df_planilha_online["Previsão de Chegada"][dp]:
-                            print("produto chegou legal")
+                    print("Verificando Previsao de Entrega")
+                    logging.info("Verificando Previsao de Entrega")
+                    
+                    if df_busca["dataEntrega"][0] != "":
+                        if df_planilha_online["Previsão de Chegada"][dp] == df_busca["dataEntrega"][0]:
+                            print("Pedido entregue na data correta")
+                            logging.info("Pedido entregue na data correta")
+                            df_planilha_online["Finalizado"][dp] = "sim"
+                            df_planilha_online["Status"][dp] = df_busca["nomeOcorrencia"][0]
+                            df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][0]
                         else:
-                            print("produto nao chegou")
+                            print("Entrega realizada com atrasado")
+                            logging.info("Entrega realizada com atrasado")
+                            df_planilha_online["Finalizado"][dp] = "sim"
+                            df_planilha_online["Status"][dp] = df_busca["nomeOcorrencia"][0]
+                            df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][0]
+                            
+
+            
+                    elif data_atual > data_previsao:
+                            print("Pedido atrasado")
+                            logging.info("Pedido atrasado")
+                           
+                            df_planilha_online["Observação"][dp] = df_busca["nomeOcorrencia"][0]
+                            df_planilha_online["Status"][dp] = "Atrasado"
                 else:
-                    p.alert("OLa mundo")
-                    df_planilha_online["Previsão de Chegada"][dp] == df_busca["previsaoEntrega"][0]
-                    df_planilha_online["Status"] = df_busca['nomeOcorrencia'][0]
-
-        
-
-
-                # transportadora = df_busca["Transportadora"][0]
-                # previsao_entrega = df_busca["previsaoEntrega"][0]
-                # data_entrega = df_busca['dataEntrega'][0]
-                # ultima_ocorrencia = df_busca['nomeOcorrencia'][0]
-
-
-        
-        else:
-            df_planilha_online["Transportadora"][dp] = "NÃO ENCONTRADO"
-            alterar_dados("sem_transportadoreS", f"{df_planilha_online['Nr. nota'][dp]}")
+                    print(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
+                    logging.info(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
+                    df_planilha_online["Previsão de Chegada"][dp] = df_busca["previsaoEntrega"][0]
+                    df_planilha_online["Transportadora"][dp] = df_busca["Transportadora"][0]
+                    df_planilha_online["Status"][dp] =  df_busca['nomeOcorrencia'][0]
+            else:
+                print(f"Notal fiscal {df_planilha_online["Nr. nota"][dp]} sem transportadora")
+                df_planilha_online["Transportadora"][dp] = "NÃO ENCONTRADO"
+                
+        alterar_dados("sem_transportadoreS", f"{df_planilha_online['Nr. nota'][dp]}")
 
 
 
