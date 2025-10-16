@@ -1,6 +1,734 @@
 {
     "codigos_feitos": [
-       
+        {
+            "Nota": "143618",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "143708",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150980",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150981",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151031",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150984",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150982",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150986",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150989",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150987",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150988",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150992",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150993",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150994",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "4271",
+            "Representante da venda": "THIAGO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150995",
+            "Representante da venda": "MARCELLY OLIVEIRA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151002",
+            "Representante da venda": "LETICIA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150996",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3325",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150997",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "150999",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151003",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151004",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151007",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151005",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151006",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151008",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151009",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151011",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151010",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3326",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3327",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151012",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151013",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151016",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151014",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151015",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151017",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151018",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151023",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151024",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151022",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151025",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151021",
+            "Representante da venda": "LETICIA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151027",
+            "Representante da venda": "KARLLA SOUZA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3328",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151020",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151026",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3329",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151028",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151029",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151032",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151033",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151034",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151037",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3330",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151038",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151039",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3331",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151040",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151041",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151042",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151043",
+            "Representante da venda": "LORENNA FREIRE DE AGUIAR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151044",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151045",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151406",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151407",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151408",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151410",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151411",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151412",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151415",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151413",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151414",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151416",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151417",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151418",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151419",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151420",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151421",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151423",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151424",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151425",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151422",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3358",
+            "Representante da venda": "EVANDRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151426",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151427",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151429",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151428",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151430",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151431",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151435",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151434",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151436",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151438",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "4277",
+            "Representante da venda": "THIAGO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3359",
+            "Representante da venda": "EVANDRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151440",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151439",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151441",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151442",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151443",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151444",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151446",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151445",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151448",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151450",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151447",
+            "Representante da venda": "EVANDRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151449",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3360",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151451",
+            "Representante da venda": "LORENNA FREIRE DE AGUIAR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151455",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151454",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151453",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151452",
+            "Representante da venda": "EVANDRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151457",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151456",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151458",
+            "Representante da venda": "ESTELLA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151459",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151460",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151461",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151463",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151462",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151464",
+            "Representante da venda": "JOICE FERNANDA NOSCHANG",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151466",
+            "Representante da venda": "MANU",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151467",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151468",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151469",
+            "Representante da venda": "LETICIA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151471",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151470",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151472",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "4278",
+            "Representante da venda": "THIAGO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3361",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151473",
+            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151475",
+            "Representante da venda": "LORENNA FREIRE DE AGUIAR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151476",
+            "Representante da venda": "ZIL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151479",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151477",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151474",
+            "Representante da venda": "EVANDRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151478",
+            "Representante da venda": "ANGELICA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3362",
+            "Representante da venda": "MARJORY",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151482",
+            "Representante da venda": "JOZIEL",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151483",
+            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3363",
+            "Representante da venda": "HIGOR",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "151484",
+            "Representante da venda": "LARA PEDROSA",
+            "status": "Sem transportadora"
+        },
+        {
+            "Nota": "3364",
+            "Representante da venda": "VERA RAMOS",
+            "status": "Sem transportadora"
+        }
     ]
- 
 }
