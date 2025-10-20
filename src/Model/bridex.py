@@ -3,15 +3,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
 import pyautogui as p
 import os
 import logging
+import pandas as pd
 
-def transportadora_bridex(codigo):
-    status = {
-        "A caminho" : "em andamento"
+def transportadora_bridex():
+    chrome_options = Options()
+    prefs = {
+        "download.default_directory": f"{os.getenv('RAIZ')}\\brindx",  # Pasta de destino
+        "download.prompt_for_download": False,        # Não perguntar onde salvar
+        "download.directory_upgrade": True,           # Permitir sobrescrever
+        "safebrowsing.enabled": True,                 # Evitar bloqueios
     }
+    chrome_options.add_experimental_option("prefs", prefs)
+    navegador = webdriver.Chrome(options=chrome_options)
     load_dotenv()
     #Abrindo arquivo de credencias:
     with open(os.getenv("CredenciaisCBirdex")) as file:
@@ -42,7 +50,23 @@ def transportadora_bridex(codigo):
     p.sleep(5)
     #CLIQUE EM DOWLOAD
     navegador.find_element(By.XPATH, "/html/body/div[1]/main/div/div/div/div/div/button/a").click()
-    
+
+    while True:
+        arquivos = os.listdir(f"{os.getenv('RAIZ')}\\brindx")
+        print(arquivos)
+
+        # Verifica se existe algum arquivo .xlsx na pasta
+        planilhas = [f for f in arquivos if f.endswith(".xlsx")]
+        
+        if planilhas:
+            planilha = planilhas[0]  # pega a primeira encontrada
+            caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}\\brindx", planilha)
+            print("Arquivo encontrado:", caminho_planilha)
+            break
+    df = pd.read_excel(caminho_planilha)
+    df.to_excel(f"{os.getenv('RAIZ')}\\brindx\\planilha_brindx.xlsx", index=False)
+    navegador.quit()
+    navegador.close()
    
     p.sleep(4)
     

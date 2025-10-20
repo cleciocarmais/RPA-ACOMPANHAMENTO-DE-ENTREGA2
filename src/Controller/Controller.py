@@ -2,8 +2,9 @@ import logging
 import os
 import pandas as pd
 from traceback import format_exc
-from src.Model.emal_transportadora import email_transportadora
+from src.Model.email_transportadora import email_transportadora
 from src.Model.armazenamento import alterar_dados, pegar_dados
+from src.Model.mandar_email import enviar_email, enviar_email_transporadora
 from dotenv import load_dotenv
 from datetime import date, datetime
 
@@ -30,105 +31,105 @@ print("Iniciando Processo de acompanhamento de entrega")
 
 # df_planilha_online = pd.read_excel(f"{os.getenv('RAIZ')}vamos.xlsx").fillna("")
 try:
-    #CONECTANDO A PLANILHA
-    gc = gs.service_account(os.getenv("Crendeciais"))
-    workbook = gc.open_by_key(os.getenv("Id_planilha"))
-    sheet = workbook.worksheet("Desenvolvimento")
-    df_planilha_online = pd.DataFrame(sheet.get_all_records())
+    # #CONECTANDO A PLANILHA
+    # gc = gs.service_account(os.getenv("Crendeciais"))
+    # workbook = gc.open_by_key(os.getenv("Id_planilha"))
+    # sheet = workbook.worksheet("Desenvolvimento")
+    # df_planilha_online = pd.DataFrame(sheet.get_all_records())
 
 
-    df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
-    data_atual = date.today()
+    # df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
+    # data_atual = date.today()
    
 
-    for dp in range(len(df_planilha_online.index)):
-        if df_planilha_online["Finalizado"][dp] == "":
-            print(f"LInha : {dp}")
-            logging.info(f"Linha : {dp}")
-            #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
-            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")
-            #VEIRIFICAR SE PLANILHA NÃO ESTAR VAZIA
-            if not df_busca.empty:
+    # for dp in range(len(df_planilha_online.index)):
+    #     if df_planilha_online["Finalizado"][dp] == "":
+    #         print(f"LInha : {dp}")
+    #         logging.info(f"Linha : {dp}")
+    #         #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
+    #         df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")
+    #         # resultado_filtro = df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp].fillna("")
+          
+    #         #VEIRIFICAR SE PLANILHA NÃO ESTAR VAZIA
+    #         if not df_busca.empty:
                
       
-                data_previsao =  df_planilha_online["Previsão de Chegada"][dp]
-                data_previsao = datetime.strptime(data_previsao,"%d/%m/%Y").date()
-               
-
-                #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
-                if df_planilha_online['Previsão de Chegada'][dp] != "":
-                    print("Verificando Previsao de Entrega")
-                    logging.info("Verificando Previsao de Entrega")
+    #             index_busca = df_busca.index[0]
+                
+    #             #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
+    #             if df_planilha_online['Previsão de Chegada'][dp] != "":
+    #                 data_previsao =  df_planilha_online["Previsão de Chegada"][dp]
+    #                 data_previsao = datetime.strptime(data_previsao,"%d/%m/%Y").date()
+    #                 print("Verificando Previsao de Entrega")
+    #                 logging.info("Verificando Previsao de Entrega")
                     
-                    if df_busca["dataEntrega"][0] != "":
-                        if df_planilha_online["Previsão de Chegada"][dp] == df_busca["dataEntrega"][0]:
-                            print("Pedido entregue na data correta")
-                            logging.info("Pedido entregue na data correta")
-                            df_planilha_online["Finalizado"][dp] = "Sim"
-                            df_planilha_online["Status"][dp] = "ENTREGUE"
-                            df_planilha_online["Observação"][dp] = df_busca["nomeOcorrencia"][0]
-                            df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][0]
-                            alterar_dados("codigos_feitos", {
-                            "Nota" : str(df_planilha_online["Nr. nota"][dp]),
-                            "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                            "Observacao" : df_busca["nomeOcorrencia"][0],
-                            "Status" : "ENTREGUE"
-                        })
-                        else:
-                            print("Entrega realizada com atrasado")
-                            logging.info("Entrega realizada com atrasado")
-                            df_planilha_online["Finalizado"][dp] = "sim"
-                            df_planilha_online["Status"][dp] = "ENTREGUE COM ATRASO"
-                            df_planilha_online["Observação"][dp] = df_busca["nomeOcorrencia"][0]
+    #                 if df_busca["dataEntrega"][index_busca] != "":
+    #                     if df_planilha_online["Previsão de Chegada"][dp] == df_busca["dataEntrega"][index_busca]:
+    #                         print("Pedido entregue na data correta")
+    #                         logging.info("Pedido entregue na data correta")
+    #                         df_planilha_online["Finalizado"][dp] = "Sim"
+    #                         df_planilha_online["Status"][dp] = "ENTREGUE"
+    #                         df_planilha_online["Observação"][dp] = str(df_busca["nomeOcorrencia"][index_busca])
+    #                         df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][index_busca]
+    #                         alterar_dados("codigos_feitos", {
+    #                         "Nota" : str(df_planilha_online["Nr. nota"][dp]),
+    #                         "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+    #                         "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
+    #                         "Status" : "ENTREGUE"
+    #                     })
+    #                     else:
+    #                         print("Entrega realizada com atrasado")
+    #                         logging.info("Entrega realizada com atrasado")
+    #                         df_planilha_online["Finalizado"][dp] = "sim"
+    #                         df_planilha_online["Status"][dp] = "ENTREGUE COM ATRASO"
+    #                         df_planilha_online["Observação"][dp] = str(df_busca["nomeOcorrencia"][index_busca])
 
-                            df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][0]
-                            p.alert(df_planilha_online["Nr. nota"][dp])
-                            alterar_dados("codigos_feitos", {
-                                            "Nota" : str(df_planilha_online["Nr. nota"][dp]),
-                                            "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                                            "Observacao" : df_busca["nomeOcorrencia"][0],
-                                            "Status" : "ENTREGUE COM ATRASO"
-                })
+    #                         df_planilha_online["Data da entrega"][dp] = df_busca["dataEntrega"][index_busca]
+                            
+    #                         alterar_dados("codigos_feitos", {
+    #                                         "Nota" : str(df_planilha_online["Nr. nota"][dp]),
+    #                                         "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+    #                                         "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
+    #                                         "Status" : "ENTREGUE COM ATRASO"
+    #             })
                             
 
             
-                    elif data_atual > data_previsao:
-                            print("Pedido atrasado")
-                            logging.info("Pedido atrasado")
+    #                 elif data_atual > data_previsao:
+    #                         print("Pedido atrasado")
+    #                         logging.info("Pedido atrasado")
                            
-                            df_planilha_online["Observação"][dp] = df_busca["nomeOcorrencia"][0]
-                            df_planilha_online["Status"][dp] = "Atrasado"
-                            alterar_dados("codigos_feitos", {
-                    "Nota" : str(df_planilha_online["Nr. nota"][dp]),
-                    "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "Observacao" : df_busca["nomeOcorrencia"][0],
-                    "Status" : "PEDIDO ATRASADO"
-                })
-                else:
-                    print(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
-                    logging.info(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
+    #                         df_planilha_online["Observação"][dp] = str(df_busca["nomeOcorrencia"][index_busca])
+    #                         df_planilha_online["Status"][dp] = "Atrasado"
+    #                         alterar_dados("codigos_feitos", {
+    #                 "Nota" : str(df_planilha_online["Nr. nota"][dp]),
+    #                 "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+    #                 "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
+    #                 "Status" : "PEDIDO ATRASADO"
+    #             })
+    #             else:
+    #                 print(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
+    #                 logging.info(f"Cadastrando previsa de entrega {df_planilha_online["Nr. nota"][dp]}")
 
-                    df_planilha_online["Previsão de Chegada"][dp] = df_busca["previsaoEntrega"][0]
-                    df_planilha_online["Transportadora"][dp] = df_busca["Transportadora"][0]
-                    df_planilha_online["Status"][dp] =  "EM ANDAMENTO"
-                    df_planilha_online["Observação"][dp] = df_busca['nomeOcorrencia'][0]
+    #                 df_planilha_online["Previsão de Chegada"][dp] = df_busca["previsaoEntrega"][index_busca]
+    #                 df_planilha_online["Transportadora"][dp] = df_busca["Transportadora"][index_busca]
+    #                 df_planilha_online["Status"][dp] =  "EM ANDAMENTO"
+    #                 df_planilha_online["Observação"][dp] = df_busca['nomeOcorrencia'][index_busca]
 
-                    alterar_dados("codigos_feitos", {
-                    "Nota" : str(df_planilha_online["Nr. nota"][dp]),
-                    "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "Observacao" : df_busca["nomeOcorrencia"][0],
-                    "Status" : "EM ANDAMENTO"
-                })
-            else:
-                print(f"Notal fiscal {df_planilha_online["Nr. nota"][dp]} sem transportadora")
-                df_planilha_online["Transportadora"][dp] = "NÃO ENCONTRADO"
-                alterar_dados("codigos_feitos", {
-                    "Nota" : str(df_planilha_online["Nr. nota"][dp]),
-                    "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "status" : "Sem transportadora"
-                })
-
-
+    #                 alterar_dados("codigos_feitos", {
+    #                 "Nota" : str(df_planilha_online["Nr. nota"][dp]),
+    #                 "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+    #                 "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
+    #                 "Status" : "EM ANDAMENTO"
+    #             })
+    #         else:
+    #             print(f"Notal fiscal {df_planilha_online["Nr. nota"][dp]} sem transportadora")
+    #             df_planilha_online["Transportadora"][dp] = "NÃO ENCONTRADO"
+    #             alterar_dados("codigos_feitos", {
+    #                 "Nota" : str(df_planilha_online["Nr. nota"][dp]),
+    #                 "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+    #                 "Status" : "Sem transportadora"
+    #             })
 
 
 
@@ -139,10 +140,25 @@ try:
 
 
 
-    # df_entraga_pela_matriz = df_filtrado_por_nao_feitos[df_filtrado_por_nao_feitos["Unidade de negócio"].isin(["Entrega Matriz", "Retira Matriz"])] 
 
-    # df_transportadora = df_filtrado_por_nao_feitos[~df_filtrado_por_nao_feitos["Unidade de negócio"].isin(["Entrega Matriz", "Retira Matriz"])]    
+    df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
+    df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
 
+    df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
+    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
+
+    df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
+    vendores = df_outros_status["Representante da venda"]
+
+    for vendendor in vendores:
+        daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
+        enviar_email(daddos,"cleciolimalive@gmail.com")
+
+
+    
+
+
+  
     
     
   
@@ -159,6 +175,7 @@ except:
     print(format_exc())
 
 finally:
-    df_planilha_online = df_planilha_online.astype(str)
-    gsd.set_with_dataframe(sheet,df_planilha_online)
-    df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)
+    print("fi")
+    # df_planilha_online = df_planilha_online.astype(str)
+    # gsd.set_with_dataframe(sheet,df_planilha_online)
+    # df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)

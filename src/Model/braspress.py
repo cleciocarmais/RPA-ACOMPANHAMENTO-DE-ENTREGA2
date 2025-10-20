@@ -8,6 +8,8 @@ import pyautogui as p
 import os
 import logging
 from datetime import date, timedelta
+from selenium.webdriver.chrome.options import Options
+import pandas as pd
 
 
 
@@ -20,7 +22,15 @@ def brasspress(nota):
         senha = chaves[1].strip()
     print("Acessando Site de Braspress")
     logging.info("Acessando Site de Braspress")
-    navegador = webdriver.Chrome()
+    chrome_options = Options()
+    prefs = {
+        "download.default_directory": f"{os.getenv('RAIZ')}\\braspress",  # Pasta de destino
+        "download.prompt_for_download": False,        # Não perguntar onde salvar
+        "download.directory_upgrade": True,           # Permitir sobrescrever
+        "safebrowsing.enabled": True,                 # Evitar bloqueios
+    }
+    chrome_options.add_experimental_option("prefs", prefs)
+    navegador = webdriver.Chrome(options=chrome_options)
     navegador.get("https://www.braspress.com/area-do-cliente/minha-conta/")
   
     p.sleep(2)
@@ -41,7 +51,8 @@ def brasspress(nota):
     except:
         pass
 
-
+    data_inicial = (date.today() - timedelta(20)).strftime("%d/%m/%Y")
+    data_final = date.today().strftime("%d/%m/%Y")
     p.sleep(2)
     navegador.switch_to.frame(navegador.find_element(By.XPATH, "/html/body/main/div/div/div/iframe"))
     WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input")))
@@ -63,10 +74,10 @@ def brasspress(nota):
 
     
     #CAMPO DATA INICIAL
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys("01/09/2025", Keys.ENTER)
+    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys(data_inicial, Keys.ENTER)
     p.sleep(2)
     #CAMPO DATA FINAL
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys("19/09/2025",Keys.ENTER)
+    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys(data_final,Keys.ENTER)
     p.sleep(2)
     #CAMPO DE RADIO 
     
@@ -86,7 +97,22 @@ def brasspress(nota):
     exporta_dados = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button")
     navegador.execute_script("arguments[0].scrollIntoView();", exporta_dados)
     navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button").click()
+    while True:
+        arquivos = os.listdir(f"{os.getenv('RAIZ')}\\braspress")
+        print(arquivos)
 
+        # Verifica se existe algum arquivo .xlsx na pasta
+        planilhas = [f for f in arquivos if f.endswith(".xlsx")]
+        
+        if planilhas:
+            planilha = planilhas[0]  # pega a primeira encontrada
+            caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}\\braspress", planilha)
+            print("Arquivo encontrado:", caminho_planilha)
+            break
+    df = pd.read_excel(caminho_planilha)
+    df.to_excel(f"{os.getenv('RAIZ')}\\braspress\\planilha_braspres.xlsx", index=False)
+    navegador.quit()
+   
 
 if __name__ == "__main__":
     print(brasspress(150038))
