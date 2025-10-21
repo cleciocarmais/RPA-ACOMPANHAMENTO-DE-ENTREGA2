@@ -24,7 +24,7 @@ def brasspress(nota):
     logging.info("Acessando Site de Braspress")
     chrome_options = Options()
     prefs = {
-        "download.default_directory": f"{os.getenv('RAIZ')}\\braspress",  # Pasta de destino
+        "download.default_directory": f"{os.getenv('RAIZ')}braspress",  # Pasta de destino
         "download.prompt_for_download": False,        # Não perguntar onde salvar
         "download.directory_upgrade": True,           # Permitir sobrescrever
         "safebrowsing.enabled": True,                 # Evitar bloqueios
@@ -98,7 +98,7 @@ def brasspress(nota):
     navegador.execute_script("arguments[0].scrollIntoView();", exporta_dados)
     navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button").click()
     while True:
-        arquivos = os.listdir(f"{os.getenv('RAIZ')}\\braspress")
+        arquivos = os.listdir(f"{os.getenv('RAIZ')}braspress")
         print(arquivos)
 
         # Verifica se existe algum arquivo .xlsx na pasta
@@ -106,11 +106,13 @@ def brasspress(nota):
         
         if planilhas:
             planilha = planilhas[0]  # pega a primeira encontrada
-            caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}\\braspress", planilha)
+            caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}braspress", planilha)
             print("Arquivo encontrado:", caminho_planilha)
             break
+        else:
+            p.sleep(3)
     df = pd.read_excel(caminho_planilha)
-    df.to_excel(f"{os.getenv('RAIZ')}\\braspress\\planilha_braspres.xlsx", index=False)
+    df.to_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", index=False)
     navegador.quit()
    
 
