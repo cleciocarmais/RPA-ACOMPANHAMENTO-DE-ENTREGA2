@@ -64,7 +64,34 @@ import pandas as pd
 # print(planilha)
 
 
-ar = ["aruiv.xlsx"]
+# ar = ["aruiv.xlsx"]
 
-if ".xlsx" in ar:
-    print('ola')
+# if ".xlsx" in ar:
+#     print('ola')
+
+# from datetime import date, timedelta
+
+# data_inicial = date.today() - timedelta(23)
+# data_final = date.today()
+# print(data_inicial)
+# if data_inicial.weekday() in [5,6]:
+#     print("ola")
+
+
+
+
+meses = {
+    1: "JAN",
+    2: "FEV",
+    3: "MAR",
+    4: "ABR",
+    5: "MAI",
+    6: "JUN",
+    7: "JUL",
+    8: "AGO",
+    9: "SET",
+    10: "OUT",
+    11: "NOV",
+    12: "DEZ"
+}
+   
