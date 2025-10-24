@@ -14,7 +14,7 @@ import pandas as pd
 
 
 
-def brasspress(nota):
+def brasspress():
     load_dotenv()
     with open(os.getenv("CredenciaisBrasspress")) as file:
         chaves = file.readlines()

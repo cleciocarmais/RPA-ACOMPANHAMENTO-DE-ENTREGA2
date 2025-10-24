@@ -143,6 +143,7 @@ def transportadora_controlog():
             p.sleep(3)
     df = pd.read_csv(caminho_planilha, delimiter=";", encoding="latin1")
     df.to_excel(f"{os.getenv('RAIZ')}controlog\\planilha_controlog.xlsx", index=False)
+    os.remove(caminho_planilha)
     navegador.quit()
     p.sleep(2)
 

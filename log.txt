@@ -1,1 +1,96 @@
-19/10/2025 21:09:02 - INFO - Iniciando Processo de acompanhamento de entrega
+23/10/2025 22:02:16 - INFO - Iniciando Processo de acompanhamento de entrega
+23/10/2025 22:02:19 - INFO - Acessando Site de Braspress
+23/10/2025 22:07:26 - INFO - Lendo planilhas
+23/10/2025 22:07:53 - INFO - Linha : 0
+23/10/2025 22:07:53 - INFO - Verificando Previsao de Entrega
+23/10/2025 22:07:53 - INFO - Pedido atrasado
+23/10/2025 22:07:53 - INFO - Linha : 1
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152196
+23/10/2025 22:07:53 - INFO - Linha : 2
+23/10/2025 22:07:53 - INFO - Verificando Previsao de Entrega
+23/10/2025 22:07:53 - INFO - Pedido atrasado
+23/10/2025 22:07:53 - INFO - Linha : 3
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152199
+23/10/2025 22:07:53 - INFO - Linha : 4
+23/10/2025 22:07:53 - INFO - Linha : 5
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152200
+23/10/2025 22:07:53 - INFO - Linha : 6
+23/10/2025 22:07:53 - INFO - Linha : 7
+23/10/2025 22:07:53 - INFO - Verificando Previsao de Entrega
+23/10/2025 22:07:53 - INFO - Pedido atrasado
+23/10/2025 22:07:53 - INFO - Linha : 8
+23/10/2025 22:07:53 - INFO - Linha : 9
+23/10/2025 22:07:53 - INFO - Linha : 10
+23/10/2025 22:07:53 - INFO - Linha : 11
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152206
+23/10/2025 22:07:53 - INFO - Linha : 12
+23/10/2025 22:07:53 - INFO - Linha : 13
+23/10/2025 22:07:53 - INFO - Linha : 14
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152210
+23/10/2025 22:07:53 - INFO - Linha : 15
+23/10/2025 22:07:53 - INFO - Linha : 16
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152212
+23/10/2025 22:07:53 - INFO - Linha : 17
+23/10/2025 22:07:53 - INFO - Linha : 18
+23/10/2025 22:07:53 - INFO - Linha : 19
+23/10/2025 22:07:53 - INFO - Linha : 20
+23/10/2025 22:07:53 - INFO - Verificando Previsao de Entrega
+23/10/2025 22:07:53 - INFO - Pedido atrasado
+23/10/2025 22:07:53 - INFO - Linha : 21
+23/10/2025 22:07:53 - INFO - Linha : 22
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152225
+23/10/2025 22:07:53 - INFO - Linha : 23
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152219
+23/10/2025 22:07:53 - INFO - Linha : 24
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152220
+23/10/2025 22:07:53 - INFO - Linha : 25
+23/10/2025 22:07:53 - INFO - Cadastrando previsa de entrega 152221
+23/10/2025 22:07:53 - INFO - Linha : 26
+23/10/2025 22:07:53 - INFO - Linha : 27
+23/10/2025 22:07:53 - INFO - Linha : 28
+23/10/2025 22:07:53 - INFO - Linha : 29
+23/10/2025 22:07:53 - INFO - Linha : 30
+23/10/2025 22:07:53 - INFO - Linha : 31
+23/10/2025 22:07:53 - INFO - Linha : 32
+23/10/2025 22:07:53 - INFO - Linha : 33
+23/10/2025 22:07:53 - INFO - Linha : 34
+23/10/2025 22:07:53 - INFO - Linha : 35
+23/10/2025 22:07:53 - INFO - Linha : 36
+23/10/2025 22:07:53 - INFO - Linha : 37
+23/10/2025 22:07:54 - INFO - Linha : 38
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152232
+23/10/2025 22:07:54 - INFO - Linha : 39
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152233
+23/10/2025 22:07:54 - INFO - Linha : 40
+23/10/2025 22:07:54 - INFO - Linha : 41
+23/10/2025 22:07:54 - INFO - Linha : 42
+23/10/2025 22:07:54 - INFO - Linha : 43
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152246
+23/10/2025 22:07:54 - INFO - Linha : 44
+23/10/2025 22:07:54 - INFO - Linha : 45
+23/10/2025 22:07:54 - INFO - Linha : 46
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152250
+23/10/2025 22:07:54 - INFO - Linha : 47
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152251
+23/10/2025 22:07:54 - INFO - Linha : 48
+23/10/2025 22:07:54 - INFO - Linha : 49
+23/10/2025 22:07:54 - INFO - Linha : 50
+23/10/2025 22:07:54 - INFO - Linha : 51
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152258
+23/10/2025 22:07:54 - INFO - Linha : 52
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152259
+23/10/2025 22:07:54 - INFO - Linha : 53
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152260
+23/10/2025 22:07:54 - INFO - Linha : 54
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152261
+23/10/2025 22:07:54 - INFO - Linha : 55
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152262
+23/10/2025 22:07:54 - INFO - Linha : 56
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152263
+23/10/2025 22:07:54 - INFO - Linha : 57
+23/10/2025 22:07:54 - INFO - Linha : 58
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152265
+23/10/2025 22:07:54 - INFO - Linha : 59
+23/10/2025 22:07:54 - INFO - Cadastrando previsa de entrega 152266
+23/10/2025 22:07:54 - INFO - Linha : 60
+23/10/2025 22:07:54 - INFO - Linha : 61

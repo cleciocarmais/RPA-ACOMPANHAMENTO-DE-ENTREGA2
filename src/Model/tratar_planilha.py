@@ -1,30 +1,38 @@
 import pandas as pd
 import logging
-
+import os
 
 
 def tratar_planilhas():
     print("Lendo planilhas")
     logging.info("Lendo planilhas")
-    #LENDO PLANILHA BRINX matriz
-    df_bridex = pd.read_csv(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\brindx\MJ_7.csv", delimiter=";")
-    #Filtrar colunas desejadas 
-    df_bridex["Transportadora"] = "bridex"
-    df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
+    #LENDO PLANILHA BRINX matriz ##################################################################################
+    # df_bridex = pd.read_csv(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\brindx\MJ_7.csv", delimiter=";")
+    # #Filtrar colunas desejadas 
+    # df_bridex["Transportadora"] = "bridex"
+    # df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
-    #Tratando coluna notaFiscal
-    df_bridex["notaFiscal"] = [str(x.replace(" ","")[-6:]) for x in df_bridex["notaFiscal"]]
+    # #Tratando coluna notaFiscal
+    # df_bridex["notaFiscal"] = [str(x.replace(" ","")[-6:]) for x in df_bridex["notaFiscal"]]
 
-    ######################################## BRiDX FILIAL
-    df_bridex_filial = pd.read_csv(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\bridx_filial\MJ_3.csv", delimiter=";")
-    #Filtrar colunas desejadas 
-    df_bridex_filial["Transportadora"] = "bridex"
-    df_bridex_filial = df_bridex_filial[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
-    #Tratando coluna notaFiscal
-    df_bridex_filial["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex_filial["notaFiscal"]]
+
+
+
+    # ######################################## BRiDX FILIAL ##############################################################
+    # df_bridex_filial = pd.read_csv(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\bridx_filial\MJ_3.csv", delimiter=";")
+    # #Filtrar colunas desejadas 
+    # df_bridex_filial["Transportadora"] = "bridex"
+    # df_bridex_filial = df_bridex_filial[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
+
+    # #Tratando coluna notaFiscal
+    # df_bridex_filial["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex_filial["notaFiscal"]]
+
+
+
+
     ############################################ BRASPRES ##########################################################
-    df_braspres = pd.read_excel(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\braspress\export_minhas_encomendas_01-10-2025_20-10-2025.xlsx", skiprows=6)
+    df_braspres = pd.read_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", skiprows=6)
     index2 =  len(df_braspres.index) - 14
 
     df_braspres = df_braspres[:index2]
@@ -40,8 +48,8 @@ def tratar_planilhas():
 
     })
 
-    ####################################### CONTROLOG #######################33
-    df_controlog = pd.read_csv(r"controlog/Controlog_Relatorio_Cargas_e_Entregas_18_10_2025_168f38b7202105.csv",delimiter=";",encoding="latin1")
+    ####################################### CONTROLOG #######################33########################################################
+    df_controlog = pd.read_excel(f"{os.getenv('RAIZ')}controlog\\planilha_controlog.xlsx")
     df_controlog["Transportadora"] = "Controlog"
     df_controlog.columns = (
     df_controlog.columns
@@ -63,8 +71,8 @@ def tratar_planilhas():
 
 
     
-    planilha_concat = pd.concat([df_braspres, df_bridex,df_bridex_filial,df_controlog], ignore_index=False)
-    planilha_concat.to_excel(r"D:\RPA\RPA_ACOMPANHAMENTO_ENTREGAS_2\planilha_rota_entregas.xlsx", index=False)
+    planilha_concat = pd.concat([df_braspres,df_controlog], ignore_index=False)
+    planilha_concat.to_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx", index=False)
 
 
 if __name__ == "__main__":
