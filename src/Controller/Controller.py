@@ -7,6 +7,7 @@ from src.Model.armazenamento import alterar_dados, pegar_dados
 from src.Model.mandar_email import enviar_email, enviar_email_transporadora
 from src.Model.braspress import brasspress
 from src.Model.Controlog import transportadora_controlog
+from src.Model.bridex import transportadora_bridex
 from dotenv import load_dotenv
 from datetime import date, datetime
 from src.Model.tratar_planilha import tratar_planilhas
@@ -39,10 +40,12 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    brasspress()
-    p.sleep(2)
-    transportadora_controlog()
-    p.alert("Planilhas baixadas de cada empresa")
+    # brasspress()
+    # p.sleep(2)
+    # transportadora_controlog()
+    # p.sleep(2)
+    # transportadora_bridex()
+    # p.alert("Planilhas baixadas de cada empresa")
     tratar_planilhas()
     p.alert("planilha com dados salvas")
 
@@ -156,7 +159,7 @@ try:
     df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
 
     df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
-    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
+    enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
 
     df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
     vendores = df_outros_status["Representante da venda"]
