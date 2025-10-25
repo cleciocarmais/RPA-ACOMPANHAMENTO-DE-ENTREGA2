@@ -35,7 +35,7 @@ def enviar_email(dados,sender):
 
     text = message.as_string()
     email.sendmail(usuario,receiver,text)
-    print("email_enviado")
+    print(f"EMAIL ENVIADO EMAIL PARA {sender}")
 
 def enviar_email_transporadora(titulo, dados,sender):
 
@@ -74,7 +74,7 @@ def enviar_email_transporadora(titulo, dados,sender):
 
     text = message.as_string()
     email.sendmail(usuario,receiver,text)
-    print("email de transportadora enviando com sucesso!!!")
+    print("EMAIL DE PEDIDOS SEM TRANSPORTADORA ENVIADO!!!")
     logging.info("email de transportadora enviando com sucesso!!!")
 
 

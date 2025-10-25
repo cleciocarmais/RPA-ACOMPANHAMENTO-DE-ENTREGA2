@@ -35,21 +35,21 @@ print("Iniciando Processo de acompanhamento de entrega")
 
 # df_planilha_online = pd.read_excel(f"{os.getenv('RAIZ')}vamos.xlsx").fillna("")
 try:
-    #CONECTANDO A PLANILHA
+    # #CONECTANDO A PLANILHA
     gc = gs.service_account(os.getenv("Crendeciais"))
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    # brasspress()
+    # brasspress() 
     # p.sleep(2)
     # transportadora_controlog()
     # p.sleep(2)
     # transportadora_bridex()
-    # p.alert("Planilhas baixadas de cada empresa")
-    tratar_planilhas()
-    p.alert("planilha com dados salvas")
+    # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
+    # tratar_planilhas()
+    # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
 
-
+    pd.options.mode.chained_assignment = None
     df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
     data_atual = date.today()
    
@@ -114,7 +114,7 @@ try:
                             logging.info("Pedido atrasado")
                            
                             df_planilha_online["Observação"][dp] = str(df_busca["nomeOcorrencia"][index_busca])
-                            df_planilha_online["Status"][dp] = "Atrasado"
+                            df_planilha_online["Status"][dp] = "ATRASADO"
                             alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
@@ -162,11 +162,11 @@ try:
     enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
 
     df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
-    vendores = df_outros_status["Representante da venda"]
+    vendores = df_outros_status["Representante da venda"].unique()
 
     for vendendor in vendores:
         daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
-        enviar_email(daddos,"cleciolimalive@gmail.com")
+        enviar_email(daddos,vendendor)
 
 
     
@@ -190,6 +190,6 @@ except:
 
 finally:
     print("fi")
-    # df_planilha_online = df_planilha_online.astype(str)
-    # gsd.set_with_dataframe(sheet,df_planilha_online)
-    # df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)
+    df_planilha_online = df_planilha_online.astype(str)
+    gsd.set_with_dataframe(sheet,df_planilha_online)
+    df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)

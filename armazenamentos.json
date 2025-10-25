@@ -1,16 +1,10 @@
 {
     "codigos_feitos": [
         {
-            "Nota": "152197",
-            "Representante da venda": "ANGELICA",
-            "Observacao": "",
-            "Status": "PEDIDO ATRASADO"
-        },
-        {
             "Nota": "152196",
             "Representante da venda": "ANGELICA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152198",
@@ -22,7 +16,7 @@
             "Nota": "152199",
             "Representante da venda": "ZIL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152195",
@@ -33,7 +27,7 @@
             "Nota": "152200",
             "Representante da venda": "ZIL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152201",
@@ -65,13 +59,13 @@
             "Nota": "152206",
             "Representante da venda": "ESTELLA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152209",
             "Representante da venda": "ANGELICA",
             "Observacao": "MERCADORIA ENTREGUE",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE COM ATRASO"
         },
         {
             "Nota": "3418",
@@ -82,7 +76,7 @@
             "Nota": "152210",
             "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152211",
@@ -93,7 +87,7 @@
             "Nota": "152212",
             "Representante da venda": "ZIL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE COM ATRASO"
         },
         {
             "Nota": "152249",
@@ -125,25 +119,25 @@
             "Nota": "152225",
             "Representante da venda": "ZIL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152219",
             "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152220",
             "Representante da venda": "ANGELICA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152221",
             "Representante da venda": "ESTELLA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152227",
@@ -209,13 +203,13 @@
             "Nota": "152232",
             "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152233",
             "Representante da venda": "VERA RAMOS",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152234",
@@ -236,7 +230,7 @@
             "Nota": "152246",
             "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152245",
@@ -252,13 +246,13 @@
             "Nota": "152250",
             "Representante da venda": "VERA RAMOS",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152251",
             "Representante da venda": "ESTELLA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152255",
@@ -279,37 +273,37 @@
             "Nota": "152258",
             "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152259",
             "Representante da venda": "LARA PEDROSA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152260",
             "Representante da venda": "LARA PEDROSA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152261",
             "Representante da venda": "LARA PEDROSA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152262",
             "Representante da venda": "ESTELLA",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152263",
             "Representante da venda": "MARJORY",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152264",
@@ -320,13 +314,13 @@
             "Nota": "152265",
             "Representante da venda": "ZIL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "ENTREGUE"
         },
         {
             "Nota": "152266",
             "Representante da venda": "JOZIEL",
             "Observacao": "",
-            "Status": "EM ANDAMENTO"
+            "Status": "PEDIDO ATRASADO"
         },
         {
             "Nota": "152267",

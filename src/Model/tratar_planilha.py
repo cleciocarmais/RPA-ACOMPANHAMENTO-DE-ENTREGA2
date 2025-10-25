@@ -31,23 +31,23 @@ def tratar_planilhas():
 
 
 
-    ############################################ BRASPRES ##########################################################
+    ########################################### BRASPRES ##########################################################
     
-    # df_braspres = pd.read_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", skiprows=6)
-    # index2 =  len(df_braspres.index) - 14
+    df_braspres = pd.read_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", skiprows=6)
+    index2 =  len(df_braspres.index) - 14
 
-    # df_braspres = df_braspres[:index2]
-    # df_braspres["NOTA FISCAL"] = [str(x.replace(",","")) for x in df_braspres["NOTA FISCAL"]]
-    # df_braspres["Transportadora"] = "braspres"
+    df_braspres = df_braspres[:index2]
+    df_braspres["NOTA FISCAL"] = [str(x.replace(",","")) for x in df_braspres["NOTA FISCAL"]]
+    df_braspres["Transportadora"] = "braspres"
 
-    # df_braspres = df_braspres[["NOTA FISCAL","PREVISÃO DE ENTREGA ORIGINAL","PREVISÃO DE ENTREGA","ULTIMA OCORRÊNCIA","Transportadora"]]
-    # df_braspres = df_braspres.rename(columns={
-    #     "NOTA FISCAL" : "notaFiscal",
-    #     "PREVISÃO DE ENTREGA ORIGINAL" :"previsaoEntrega",
-    #     "PREVISÃO DE ENTREGA": "dataEntrega",
-    #     "ULTIMA OCORRÊNCIA" : "nomeOcorrencia"
+    df_braspres = df_braspres[["NOTA FISCAL","PREVISÃO DE ENTREGA ORIGINAL","PREVISÃO DE ENTREGA","ULTIMA OCORRÊNCIA","Transportadora"]]
+    df_braspres = df_braspres.rename(columns={
+        "NOTA FISCAL" : "notaFiscal",
+        "PREVISÃO DE ENTREGA ORIGINAL" :"previsaoEntrega",
+        "PREVISÃO DE ENTREGA": "dataEntrega",
+        "ULTIMA OCORRÊNCIA" : "nomeOcorrencia"
 
-    # })
+    })
 
     ####################################### CONTROLOG #######################33########################################################
     df_controlog = pd.read_excel(f"{os.getenv('RAIZ')}controlog\\planilha_controlog.xlsx")
@@ -72,7 +72,7 @@ def tratar_planilhas():
 
 
     
-    planilha_concat = pd.concat([df_controlog,df_bridex,df_bridex_filial], ignore_index=False)
+    planilha_concat = pd.concat([df_controlog,df_bridex,df_bridex_filial,df_braspres], ignore_index=False)
     planilha_concat.to_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx", index=False)
 
 
