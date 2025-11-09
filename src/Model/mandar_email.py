@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-
+from src.Model.utilizado import emails
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from src.Model.estilo import estilo
@@ -8,7 +8,9 @@ import smtplib as sm
 import pandas as pd
 import logging
 
-def enviar_email(dados,sender):
+def enviar_email(dados,vendedor):
+
+
     load_dotenv()
     with open(os.getenv("Crendeciais_email"), "r") as file:
         chaves = file.readlines()
@@ -21,7 +23,7 @@ def enviar_email(dados,sender):
     except:
         print("Erro ao tentar conectar com planiha")
         exit()
-    receiver = usuario
+    receiver = (f'{emails[vendedor]}, janderamancio@gmail.com')
     message = MIMEMultipart("alternative")
     message["From"] = usuario
     message["To"] = receiver
@@ -34,8 +36,8 @@ def enviar_email(dados,sender):
     mgsAlternative.attach(mgsText)
 
     text = message.as_string()
-    email.sendmail(usuario,receiver,text)
-    print(f"EMAIL ENVIADO EMAIL PARA {sender}")
+    email.sendmail(usuario,receiver.split(","),text)
+    print(f"EMAIL ENVIADO EMAIL PARA {vendedor}")
 
 def enviar_email_transporadora(titulo, dados,sender):
 

@@ -1,22 +1,9 @@
 {
     "codigos_feitos": [
         {
-            "Nota": "152196",
-            "Representante da venda": "ANGELICA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
             "Nota": "152198",
             "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
-            "Observacao": "",
-            "Status": "PEDIDO ATRASADO"
-        },
-        {
-            "Nota": "152199",
-            "Representante da venda": "ZIL",
-            "Observacao": "",
-            "Status": "ENTREGUE"
+            "Status": "Sem transportadora"
         },
         {
             "Nota": "152195",
@@ -37,8 +24,7 @@
         {
             "Nota": "152202",
             "Representante da venda": "ESTELLA",
-            "Observacao": "",
-            "Status": "PEDIDO ATRASADO"
+            "Status": "Sem transportadora"
         },
         {
             "Nota": "152203",
@@ -56,38 +42,14 @@
             "Status": "Sem transportadora"
         },
         {
-            "Nota": "152206",
-            "Representante da venda": "ESTELLA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152209",
-            "Representante da venda": "ANGELICA",
-            "Observacao": "MERCADORIA ENTREGUE",
-            "Status": "ENTREGUE COM ATRASO"
-        },
-        {
             "Nota": "3418",
             "Representante da venda": "ZIL",
             "Status": "Sem transportadora"
         },
         {
-            "Nota": "152210",
-            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
             "Nota": "152211",
             "Representante da venda": "JOSE M",
             "Status": "Sem transportadora"
-        },
-        {
-            "Nota": "152212",
-            "Representante da venda": "ZIL",
-            "Observacao": "",
-            "Status": "ENTREGUE COM ATRASO"
         },
         {
             "Nota": "152249",
@@ -107,37 +69,12 @@
         {
             "Nota": "152223",
             "Representante da venda": "EVANDRO",
-            "Observacao": "",
-            "Status": "PEDIDO ATRASADO"
+            "Status": "Sem transportadora"
         },
         {
             "Nota": "3419",
             "Representante da venda": "MARJORY",
             "Status": "Sem transportadora"
-        },
-        {
-            "Nota": "152225",
-            "Representante da venda": "ZIL",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152219",
-            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152220",
-            "Representante da venda": "ANGELICA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152221",
-            "Representante da venda": "ESTELLA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
         },
         {
             "Nota": "152227",
@@ -206,12 +143,6 @@
             "Status": "PEDIDO ATRASADO"
         },
         {
-            "Nota": "152233",
-            "Representante da venda": "VERA RAMOS",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
             "Nota": "152234",
             "Representante da venda": "EVANDRO",
             "Status": "Sem transportadora"
@@ -227,12 +158,6 @@
             "Status": "Sem transportadora"
         },
         {
-            "Nota": "152246",
-            "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
             "Nota": "152245",
             "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
             "Status": "Sem transportadora"
@@ -241,18 +166,6 @@
             "Nota": "152247",
             "Representante da venda": "JOS\u00c9 AUGUSTO VIEIRA SOBRINHO",
             "Status": "Sem transportadora"
-        },
-        {
-            "Nota": "152250",
-            "Representante da venda": "VERA RAMOS",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152251",
-            "Representante da venda": "ESTELLA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
         },
         {
             "Nota": "152255",
@@ -268,12 +181,6 @@
             "Nota": "152257",
             "Representante da venda": "JOZIEL",
             "Status": "Sem transportadora"
-        },
-        {
-            "Nota": "152258",
-            "Representante da venda": "LIVIA ALVES PEREIRA CARNEIRO",
-            "Observacao": "",
-            "Status": "ENTREGUE"
         },
         {
             "Nota": "152259",
@@ -294,27 +201,9 @@
             "Status": "PEDIDO ATRASADO"
         },
         {
-            "Nota": "152262",
-            "Representante da venda": "ESTELLA",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
-            "Nota": "152263",
-            "Representante da venda": "MARJORY",
-            "Observacao": "",
-            "Status": "ENTREGUE"
-        },
-        {
             "Nota": "152264",
             "Representante da venda": "LARA PEDROSA",
             "Status": "Sem transportadora"
-        },
-        {
-            "Nota": "152265",
-            "Representante da venda": "ZIL",
-            "Observacao": "",
-            "Status": "ENTREGUE"
         },
         {
             "Nota": "152266",

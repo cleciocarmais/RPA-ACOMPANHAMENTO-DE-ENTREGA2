@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
+import undetected_chromedriver as uc
 from dotenv import load_dotenv
 import pyautogui as p
 import os
@@ -21,7 +22,7 @@ def transportadora_bridex():
         "safebrowsing.enabled": True,                 # Evitar bloqueios
     }
     chrome_options.add_experimental_option("prefs", prefs)
-    navegador = webdriver.Chrome(options=chrome_options)
+    navegador = uc.Chrome(options=chrome_options)
     #Abrindo arquivo de credencias:
 
     navegador.get("https://cliente.cbirdex.com.br/login")

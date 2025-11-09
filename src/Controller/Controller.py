@@ -43,10 +43,10 @@ try:
     # brasspress() 
     # p.sleep(2)
     # transportadora_controlog()
-    # p.sleep(2)
+    # p.sleep(2) 
     # transportadora_bridex()
     # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
-    # tratar_planilhas()
+    tratar_planilhas()
     # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
 
     pd.options.mode.chained_assignment = None
@@ -158,12 +158,12 @@ try:
     df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
     df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
 
-    df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
-    enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
+    # df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
+    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
 
     df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
     vendores = df_outros_status["Representante da venda"].unique()
-
+    p.alert(vendores)
     for vendendor in vendores:
         daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
         enviar_email(daddos,vendendor)

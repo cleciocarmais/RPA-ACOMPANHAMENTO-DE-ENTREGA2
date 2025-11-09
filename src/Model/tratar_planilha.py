@@ -6,27 +6,27 @@ import os
 def tratar_planilhas():
     print("Lendo planilhas")
     logging.info("Lendo planilhas")
-    #LENDO PLANILHA BRINX matriz ##################################################################################
-    df_bridex = pd.read_excel(f"{os.getenv('RAIZ')}brindx\planilha_brindx.xlsx")
-    #Filtrar colunas desejadas 
-    df_bridex["Transportadora"] = "bridex"
-    df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
+    # #LENDO PLANILHA BRINX matriz ##################################################################################
+    # df_bridex = pd.read_excel(f"{os.getenv('RAIZ')}brindx\planilha_brindx.xlsx")
+    # #Filtrar colunas desejadas 
+    # df_bridex["Transportadora"] = "bridex"
+    # df_bridex = df_bridex[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
-    #Tratando coluna notaFiscal
-    df_bridex["notaFiscal"] = [str(x.replace(" ","")[-6:]) for x in df_bridex["notaFiscal"]]
-
-
+    # #Tratando coluna notaFiscal
+    # df_bridex["notaFiscal"] = [str(x.replace(" ","")[-6:]) for x in df_bridex["notaFiscal"]]
 
 
 
-    ######################################## BRiDX FILIAL ##############################################################
-    df_bridex_filial = pd.read_excel(f"{os.getenv('RAIZ')}brindx_filial\planilha_brindx_filial.xlsx")
-    #Filtrar colunas desejadas 
-    df_bridex_filial["Transportadora"] = "bridex"
-    df_bridex_filial = df_bridex_filial[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
-    #Tratando coluna notaFiscal
-    df_bridex_filial["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex_filial["notaFiscal"]]
+
+    # ######################################## BRiDX FILIAL ##############################################################
+    # df_bridex_filial = pd.read_excel(f"{os.getenv('RAIZ')}brindx_filial\planilha_brindx_filial.xlsx")
+    # #Filtrar colunas desejadas 
+    # df_bridex_filial["Transportadora"] = "bridex"
+    # df_bridex_filial = df_bridex_filial[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
+
+    # #Tratando coluna notaFiscal
+    # df_bridex_filial["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex_filial["notaFiscal"]]
 
 
 
@@ -72,7 +72,7 @@ def tratar_planilhas():
 
 
     
-    planilha_concat = pd.concat([df_controlog,df_bridex,df_bridex_filial,df_braspres], ignore_index=False)
+    planilha_concat = pd.concat([df_controlog,df_braspres], ignore_index=False)
     planilha_concat.to_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx", index=False)
 
 
