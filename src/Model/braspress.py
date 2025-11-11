@@ -10,111 +10,115 @@ import logging
 from datetime import date, timedelta
 from selenium.webdriver.chrome.options import Options
 import pandas as pd
-
+from traceback import format_exc
 
 
 
 def brasspress():
-    load_dotenv()
-    with open(os.getenv("CredenciaisBrasspress")) as file:
-        chaves = file.readlines()
-        usuario = chaves[0].strip()
-        senha = chaves[1].strip()
-    print("Acessando Site de Braspress")
-    logging.info("Acessando Site de Braspress")
-    chrome_options = Options()
-    prefs = {
-        "download.default_directory": f"{os.getenv('RAIZ')}braspress",  # Pasta de destino
-        "download.prompt_for_download": False,        # Não perguntar onde salvar
-        "download.directory_upgrade": True,           # Permitir sobrescrever
-        "safebrowsing.enabled": True,                 # Evitar bloqueios
-    }
-    chrome_options.add_experimental_option("prefs", prefs)
-    navegador = webdriver.Chrome(options=chrome_options)
-    navegador.get("https://www.braspress.com/area-do-cliente/minha-conta/")
-  
-    p.sleep(2)
-    navegador.maximize_window()
-    p.sleep(1)
-    #ESPERANDO TELA DE COOCKIES APARECE:
-    # p.alert("teste")
     try:
-        WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/footer/div[6]/div[3]/div")))
-        p.sleep(1)
-        navegador.find_element(By.XPATH, "/html/body/footer/div[6]/div[3]/div/div[3]/button").click()
+        load_dotenv()
+        with open(os.getenv("CredenciaisBrasspress")) as file:
+            chaves = file.readlines()
+            usuario = chaves[0].strip()
+            senha = chaves[1].strip()
+        print("Acessando Site de Braspress")
+        logging.info("Acessando Site de Braspress")
+        chrome_options = Options()
+        prefs = {
+            "download.default_directory": f"{os.getenv('RAIZ')}braspress",  # Pasta de destino
+            "download.prompt_for_download": False,        # Não perguntar onde salvar
+            "download.directory_upgrade": True,           # Permitir sobrescrever
+            "safebrowsing.enabled": True,                 # Evitar bloqueios
+        }
+        chrome_options.add_experimental_option("prefs", prefs)
+        navegador = webdriver.Chrome(options=chrome_options)
+        navegador.get("https://www.braspress.com/area-do-cliente/minha-conta/")
+    
         p.sleep(2)
-    except:
-        pass
+        navegador.maximize_window()
+        p.sleep(1)
+        #ESPERANDO TELA DE COOCKIES APARECE:
+        # p.alert("teste")
+        try:
+            WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/footer/div[6]/div[3]/div")))
+            p.sleep(1)
+            navegador.find_element(By.XPATH, "/html/body/footer/div[6]/div[3]/div/div[3]/button").click()
+            p.sleep(2)
+        except:
+            pass
 
-    try:
-        navegador.find_element(By.XPATH, "/html/body/footer/div[2]/div[1]").click()
-    except:
-        pass
+        try:
+            navegador.find_element(By.XPATH, "/html/body/footer/div[2]/div[1]").click()
+        except:
+            pass
 
-    data_inicial = (date.today() - timedelta(20)).strftime("%d/%m/%Y")
-    data_final = date.today().strftime("%d/%m/%Y")
-    p.sleep(2)
-    navegador.switch_to.frame(navegador.find_element(By.XPATH, "/html/body/main/div/div/div/iframe"))
-    WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input")))
-    p.sleep(2)
-    #CAMPO USUARIO
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input").send_keys(usuario)
-    p.sleep(2)
-    #CAMPO SENHA
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[2]/div/input").send_keys(senha)
-    p.sleep(2)
-    #BTN ENTRAR
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[3]/input").click()
-    p.sleep(2)
-    #PAGINA PRINCIPAL
-    WebDriverWait(navegador, 15).until(ec.visibility_of_element_located((By.XPATH, "/html/body/main/div/div[2]/div/div[2]/div[4]/button")))
-    #BTN DE ENCOMENDADS
-    navegador.find_element(By.XPATH, "/html/body/main/div/div[2]/div/div[2]/div[4]/button").click()
-    p.sleep(5)
+        data_inicial = (date.today() - timedelta(20)).strftime("%d/%m/%Y")
+        data_final = date.today().strftime("%d/%m/%Y")
+        p.sleep(2)
+        navegador.switch_to.frame(navegador.find_element(By.XPATH, "/html/body/main/div/div/div/iframe"))
+        WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input")))
+        p.sleep(2)
+        #CAMPO USUARIO
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[1]/div/input").send_keys(usuario)
+        p.sleep(2)
+        #CAMPO SENHA
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[2]/div/input").send_keys(senha)
+        p.sleep(2)
+        #BTN ENTRAR
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div/form/div[2]/div/div[3]/input").click()
+        p.sleep(2)
+        #PAGINA PRINCIPAL
+        WebDriverWait(navegador, 15).until(ec.visibility_of_element_located((By.XPATH, "/html/body/main/div/div[2]/div/div[2]/div[4]/button")))
+        #BTN DE ENCOMENDADS
+        navegador.find_element(By.XPATH, "/html/body/main/div/div[2]/div/div[2]/div[4]/button").click()
+        p.sleep(5)
 
-    
-    #CAMPO DATA INICIAL
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys(data_inicial, Keys.ENTER)
-    p.sleep(2)
-    #CAMPO DATA FINAL
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys(data_final,Keys.ENTER)
-    p.sleep(2)
-    #CAMPO DE RADIO 
-    
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[7]/div/label[1]").click()
-
-    p.sleep(2)
-    #CAMPO PESQUISA
-    elemento = navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button")
-
-    navegador.execute_script("arguments[0].scrollIntoView();", elemento)
-    p.alert("scroll")
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button").click()
-    p.sleep(2)
-    #Esperando carregar tabela
-    WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table")))
-    print("Exportanto os dados")
-    exporta_dados = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button")
-    navegador.execute_script("arguments[0].scrollIntoView();", exporta_dados)
-    navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button").click()
-    while True:
-        arquivos = os.listdir(f"{os.getenv('RAIZ')}braspress")
-        print(arquivos)
-
-        # Verifica se existe algum arquivo .xlsx na pasta
-        planilhas = [f for f in arquivos if f.endswith(".xlsx")]
         
-        if planilhas:
-            planilha = planilhas[0]  # pega a primeira encontrada
-            caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}braspress", planilha)
-            print("Arquivo encontrado:", caminho_planilha)
-            break
-        else:
-            p.sleep(3)
-    df = pd.read_excel(caminho_planilha)
-    df.to_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", index=False)
-    navegador.quit()
-   
+        #CAMPO DATA INICIAL
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[1]/div/input").send_keys(data_inicial, Keys.ENTER)
+        p.sleep(2)
+        #CAMPO DATA FINAL
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[1]/div[2]/div/input").send_keys(data_final,Keys.ENTER)
+        p.sleep(2)
+        #CAMPO DE RADIO 
+        
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[7]/div/label[1]").click()
+
+        p.sleep(2)
+        #CAMPO PESQUISA
+        elemento = navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button")
+
+        navegador.execute_script("arguments[0].scrollIntoView();", elemento)
+        p.alert("scroll")
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button").click()
+        p.sleep(2)
+        #Esperando carregar tabela
+        WebDriverWait(navegador, 20).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[4]/div[3]/div[1]/table")))
+        print("Exportanto os dados")
+        exporta_dados = navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button")
+        navegador.execute_script("arguments[0].scrollIntoView();", exporta_dados)
+        navegador.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[2]/div[1]/button").click()
+        while True:
+            arquivos = os.listdir(f"{os.getenv('RAIZ')}braspress")
+            print(arquivos)
+
+            # Verifica se existe algum arquivo .xlsx na pasta
+            planilhas = [f for f in arquivos if f.endswith(".xlsx")]
+            
+            if planilhas:
+                planilha = planilhas[0]  # pega a primeira encontrada
+                caminho_planilha = os.path.join(f"{os.getenv('RAIZ')}braspress", planilha)
+                print("Arquivo encontrado:", caminho_planilha)
+                break
+            else:
+                p.sleep(3)
+        df = pd.read_excel(caminho_planilha)
+        df.to_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", index=False)
+        navegador.quit()
+    except:
+        print(format_exc()) 
+        logging.error(format_exc()) 
+        pass
 
 if __name__ == "__main__":
     print(brasspress(150038))

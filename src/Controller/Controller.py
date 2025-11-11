@@ -19,11 +19,11 @@ import pyautogui as p
 load_dotenv()
 
 
-with open(f"{os.getenv('RAIZ')}log.txt", "w") as file:
+with open(f"{os.getenv('RAIZ')}log.log", "w") as file:
     pass
 
 logging.basicConfig(
-    filename=f"{os.getenv('RAIZ')}log.txt",  # Use raw string (r"") para evitar erro com "\"
+    filename=f"{os.getenv('RAIZ')}log.log",  # Use raw string (r"") para evitar erro com "\"
     filemode="a",  # Adiciona ao final do arquivo
     format="%(asctime)s - %(levelname)s - %(message)s",  # Formato da mensagem
     datefmt="%d/%m/%Y %H:%M:%S",  # Formato da data e hora
@@ -40,12 +40,12 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    # brasspress() 
-    # p.sleep(2)
-    # transportadora_controlog()
-    # p.sleep(2) 
-    # transportadora_bridex()
-    # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
+    brasspress() 
+    p.sleep(2)
+    transportadora_controlog()
+    p.sleep(2) 
+    transportadora_bridex()
+    p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
     tratar_planilhas()
     # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
 
@@ -59,11 +59,8 @@ try:
 
 
             print(f"LInha : {dp}")
-            logging.info(f"Linha : {dp}")
             #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
-            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")
-            # resultado_filtro = df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp].fillna("")
-          
+            df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")          
             #VEIRIFICAR SE PLANILHA NÃO ESTAR VAZIA
             if not df_busca.empty:
                
@@ -163,7 +160,7 @@ try:
 
     df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
     vendores = df_outros_status["Representante da venda"].unique()
-    p.alert(vendores)
+
     for vendendor in vendores:
         daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
         enviar_email(daddos,vendendor)

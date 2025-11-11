@@ -17,8 +17,15 @@ def pegar_dados(tipo_dados):
 def alterar_dados(chave, valos):
     with open(f"{os.getenv('RAIZ')}armazenamentos.json", 'r') as file:
         dados = json.load(file)
-    print(valos)
     dados[chave].append(valos)
+
+    with open(f"{os.getenv('RAIZ')}armazenamentos.json", 'w') as file:
+        json.dump(dados, file, indent=4)
+
+def resertar():
+    with open(f"{os.getenv('RAIZ')}armazenamentos.json", 'r') as file:
+        dados = json.load(file)
+    dados['codigos_feitos'] = []
 
     with open(f"{os.getenv('RAIZ')}armazenamentos.json", 'w') as file:
         json.dump(dados, file, indent=4)
@@ -28,3 +35,5 @@ def alterar_dados(chave, valos):
 # codigos_feitos
 
 # pegar_dados("codigos_feitos")
+if __name__ == "__main__":
+    resertar()
