@@ -40,31 +40,29 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    brasspress() 
-    p.sleep(2)
-    transportadora_controlog()
-    p.sleep(2) 
-    transportadora_bridex()
-    p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
-    tratar_planilhas()
+    # brasspress() 
+    # p.sleep(2)
+    # transportadora_controlog()
+    # p.sleep(2) 
+    # transportadora_bridex()
+    # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
+    # tratar_planilhas()
     # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
 
     pd.options.mode.chained_assignment = None
     df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
     data_atual = date.today()
    
-
+    #INTERACAO SOBRE AS LINHAS DA PLANILHA ONLINE
     for dp in range(len(df_planilha_online.index)):
+        #VERIFICANDO SE A LINHA DA FOI FEITA
         if df_planilha_online["Finalizado"][dp] == "":
-
-
-            print(f"LInha : {dp}")
             #PESQUISA NUMERO DA NOTA QUEM VEM DA PLANILHA NA PLANILHA DE DADOS.
             df_busca = df_planilha_dados_Entragas.loc[df_planilha_dados_Entragas["notaFiscal"] == df_planilha_online["Nr. nota"][dp]].fillna("")          
             #VEIRIFICAR SE PLANILHA NÃO ESTAR VAZIA
             if not df_busca.empty:
-               
-      
+                print("Pedido encontrado")
+                logging.info("Pedido encontrado")
                 index_busca = df_busca.index[0]
                 
                 #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
@@ -85,6 +83,7 @@ try:
                             alterar_dados("codigos_feitos", {
                             "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                             "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+                            "Cliente" : df_planilha_online["Pessoa"][dp],
                             "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                             "Status" : "ENTREGUE"
                         })
@@ -100,9 +99,9 @@ try:
                             alterar_dados("codigos_feitos", {
                                             "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                                             "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+                                            "Cliente" : df_planilha_online["Pessoa"][dp],
                                             "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
-                                            "Status" : "ENTREGUE COM ATRASO"
-                })
+                                            "Status" : "ENTREGUE COM ATRASO"})
                             
 
             
@@ -115,6 +114,7 @@ try:
                             alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+                    "Cliente" : df_planilha_online["Pessoa"][dp],
                     "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                     "Status" : "PEDIDO ATRASADO"
                 })
@@ -130,6 +130,7 @@ try:
                     alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+                    "Cliente" : df_planilha_online["Pessoa"][dp],
                     "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                     "Status" : "EM ANDAMENTO"
                 })
@@ -139,6 +140,7 @@ try:
                 alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
+                    "Cliente" : df_planilha_online["Pessoa"][dp],
                     "Status" : "Sem transportadora"
                 })
 
@@ -152,18 +154,18 @@ try:
 
 
 
-    df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
-    df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
+    # df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
+    # df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
 
     # df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
-    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
+    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"logistica@silicontech.com.br")
 
-    df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
-    vendores = df_outros_status["Representante da venda"].unique()
+    # df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
+    # vendores = df_outros_status["Representante da venda"].unique()
 
-    for vendendor in vendores:
-        daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
-        enviar_email(daddos,vendendor)
+    # for vendendor in vendores:
+    #     daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
+    #     enviar_email(daddos,vendendor)
 
 
     

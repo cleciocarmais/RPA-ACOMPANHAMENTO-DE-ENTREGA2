@@ -53,7 +53,7 @@ def enviar_email_transporadora(titulo, dados,sender):
     except:
         print("Erro ao tentar conectar com planiha")
         exit()
-    receiver = usuario
+    receiver = (f"{sender},janderamancio@gmail.com")
     message = MIMEMultipart("alternative")
     message["From"] = usuario
     message["To"] = receiver
@@ -75,7 +75,7 @@ def enviar_email_transporadora(titulo, dados,sender):
     mgsAlternative.attach(mgsText)
 
     text = message.as_string()
-    email.sendmail(usuario,receiver,text)
+    email.sendmail(usuario,receiver.split(','),text)
     print("EMAIL DE PEDIDOS SEM TRANSPORTADORA ENVIADO!!!")
     logging.info("email de transportadora enviando com sucesso!!!")
 
