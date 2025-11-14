@@ -64,7 +64,7 @@ try:
                 print("Pedido encontrado")
                 logging.info("Pedido encontrado")
                 index_busca = df_busca.index[0]
-                
+                print("testes")
                 #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
                 if df_planilha_online['Previsão de Chegada'][dp] != "":
                     data_previsao =  df_planilha_online["Previsão de Chegada"][dp]
@@ -83,7 +83,7 @@ try:
                             alterar_dados("codigos_feitos", {
                             "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                             "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                            "Cliente" : df_planilha_online["Pessoa"][dp],
+                            "Cliente" : str(df_planilha_online["Pessoa"][dp]).strip(),
                             "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                             "Status" : "ENTREGUE"
                         })
@@ -99,7 +99,7 @@ try:
                             alterar_dados("codigos_feitos", {
                                             "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                                             "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                                            "Cliente" : df_planilha_online["Pessoa"][dp],
+                                            "Cliente" : str(df_planilha_online["Pessoa"][dp]).strip(),
                                             "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                                             "Status" : "ENTREGUE COM ATRASO"})
                             
@@ -114,7 +114,7 @@ try:
                             alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "Cliente" : df_planilha_online["Pessoa"][dp],
+                    "Cliente" : str(df_planilha_online["Pessoa"][dp]).strip(),
                     "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                     "Status" : "PEDIDO ATRASADO"
                 })
@@ -130,7 +130,7 @@ try:
                     alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "Cliente" : df_planilha_online["Pessoa"][dp],
+                    "Cliente" : str(df_planilha_online["Pessoa"][dp]).strip(),
                     "Observacao" : str(df_busca["nomeOcorrencia"][index_busca]),
                     "Status" : "EM ANDAMENTO"
                 })
@@ -140,7 +140,7 @@ try:
                 alterar_dados("codigos_feitos", {
                     "Nota" : str(df_planilha_online["Nr. nota"][dp]),
                     "Representante da venda" : str(df_planilha_online["Representante da venda"][dp]).strip(),
-                    "Cliente" : df_planilha_online["Pessoa"][dp],
+                    "Cliente" : str(df_planilha_online["Pessoa"][dp]).strip(),
                     "Status" : "Sem transportadora"
                 })
 
