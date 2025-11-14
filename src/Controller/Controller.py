@@ -40,20 +40,20 @@ try:
     workbook = gc.open_by_key(os.getenv("Id_planilha"))
     sheet = workbook.worksheet("Desenvolvimento")
     df_planilha_online = pd.DataFrame(sheet.get_all_records())
-    # brasspress() 
-    # p.sleep(2)
-    # transportadora_controlog()
-    # p.sleep(2) 
-    # transportadora_bridex()
-    # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
-    # tratar_planilhas()
-    # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
+    brasspress() 
+    p.sleep(2)
+    transportadora_controlog()
+    p.sleep(2) 
+    transportadora_bridex()
+    p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
+    tratar_planilhas()
+    p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
 
     pd.options.mode.chained_assignment = None
     df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx")
     data_atual = date.today()
    
-    #INTERACAO SOBRE AS LINHAS DA PLANILHA ONLINE
+    # INTERACAO SOBRE AS LINHAS DA PLANILHA ONLINE
     for dp in range(len(df_planilha_online.index)):
         #VERIFICANDO SE A LINHA DA FOI FEITA
         if df_planilha_online["Finalizado"][dp] == "":
@@ -154,18 +154,18 @@ try:
 
 
 
-    # df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
-    # df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
+    df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
+    df_email = df_email.loc[df_email["Status"] != "EM ANDAMENTO"]
 
-    # df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
-    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"logistica@silicontech.com.br")
+    df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
+    enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"logistica@silicontech.com.br")
 
-    # df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
-    # vendores = df_outros_status["Representante da venda"].unique()
+    df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
+    vendores = df_outros_status["Representante da venda"].unique()
 
-    # for vendendor in vendores:
-    #     daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
-    #     enviar_email(daddos,vendendor)
+    for vendendor in vendores:
+        daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
+        enviar_email(daddos,vendendor)
 
 
     
