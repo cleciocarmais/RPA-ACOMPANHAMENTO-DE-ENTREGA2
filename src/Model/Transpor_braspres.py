@@ -14,7 +14,7 @@ from traceback import format_exc
 
 
 
-def brasspress():
+def transportadora_braspres():
     try:
         load_dotenv()
         with open(os.getenv("CredenciaisBrasspress")) as file:
@@ -89,7 +89,7 @@ def brasspress():
         elemento = navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button")
 
         navegador.execute_script("arguments[0].scrollIntoView();", elemento)
-        p.alert("scroll")
+        p.sleep(3)
         navegador.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/div/div/div/div[10]/button").click()
         p.sleep(2)
         #Esperando carregar tabela
@@ -114,11 +114,13 @@ def brasspress():
                 p.sleep(3)
         df = pd.read_excel(caminho_planilha)
         df.to_excel(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx", index=False)
+        os.remove(caminho_planilha)
         navegador.quit()
     except:
         print(format_exc()) 
         logging.error(format_exc()) 
         pass
-
+def ola():
+    print("ola")
 if __name__ == "__main__":
-    print(brasspress(150038))
+    print(transportadora_braspres(150038))

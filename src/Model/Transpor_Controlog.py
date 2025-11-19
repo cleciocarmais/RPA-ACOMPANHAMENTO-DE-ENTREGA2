@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
+
 def transportadora_controlog():
     try:
         meses = {
@@ -80,9 +81,15 @@ def transportadora_controlog():
         data_inicial =date.today() - timedelta(20)
         data_final = date.today()
 
-        if data_inicial.weekday() in [5,6]:
+        if data_inicial.weekday() in [5]:
+            data_inicial = data_inicial - timedelta(1)
+
+        if data_inicial.weekday() in [6]:
             data_inicial = data_inicial - timedelta(2)
-        if data_final.weekday() in [5,6]:
+
+        if data_final.weekday() in [5]: #=> se for em sabado
+            data_final = data_final - timedelta(1)
+        if data_final.weekday() in [5,6]:#=> se for em domingo 
             data_final = data_final - timedelta(2)
 
 
@@ -103,10 +110,11 @@ def transportadora_controlog():
             mes_final = mes_final.replace("0", "")
         if int(dia_final) < 10:
             dia_final = dia_final.replace("0", "")
-    
+
         select_mes_inicial.select_by_value(mes_inicial)
         select_dia_inicial.select_by_value(dia_inicial)
         p.sleep(2)
+
         select_mes_final.select_by_value(mes_final)
         select_dia_final.select_by_value(dia_final)
     

@@ -24,7 +24,7 @@ def transportadora_bridex():
             "safebrowsing.enabled": True,                 # Evitar bloqueios
         }
         chrome_options.add_experimental_option("prefs", prefs)
-        navegador = uc.Chrome(options=chrome_options)
+        navegador = webdriver.Chrome(options=chrome_options)
         #Abrindo arquivo de credencias:
 
         navegador.get("https://cliente.cbirdex.com.br/login")
@@ -77,6 +77,7 @@ def transportadora_bridex():
             logging.info("Convertendo arquivo de csv para xlsx") 
             df = pd.read_csv(caminho_planilha, delimiter=";")
             df.to_excel(f"{os.getenv('RAIZ')}{x}\\planilha_{x}.xlsx", index=False)
+            os.remove(caminho_planilha)
             #CLICANDO EM SAIR DO SISTEMA
             navegador.find_element(By.XPATH, "/html/body/div[1]/div[3]/div/div[2]/div").click()
             p.sleep(3)

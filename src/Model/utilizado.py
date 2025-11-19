@@ -15,6 +15,7 @@ emails = {
 "JOZIEL" : "joziel@silicontech.com.br",
 "Higor" : "igor.silva@silicontech.com.br",
 "Lorenna" : "lorenna.freire@silicontech.com.br",
-"Emanuelle" : "emanuele@silicontech.com.br"
+"Emanuelle" : "emanuele@silicontech.com.br",
+"clecio" : "cleciolimalive@gmail.com"
 }
 

@@ -4,6 +4,7 @@ import os
 from traceback import format_exc
 def tratar_planilhas():
     dataframes = []
+    planilhas_para_remover = []
     # #LENDO PLANILHA BRINX matriz ##################################################################################
     try:
         print("LENDO PLANILHA DA BRINX MATRIZ")
@@ -16,7 +17,8 @@ def tratar_planilhas():
         #Tratando coluna notaFiscal
         df_bridex["notaFiscal"] = [str(x.replace(" ","")[-6:]) for x in df_bridex["notaFiscal"]]
 
-
+        dataframes.append(df_bridex)
+        planilhas_para_remover.append(f"{os.getenv('RAIZ')}brindx\\planilha_brindx.xlsx")
 
 
 
@@ -25,13 +27,13 @@ def tratar_planilhas():
         logging.info("LENDO PLANILHA DA BRINX MATRIZ")
         df_bridex_filial = pd.read_excel(f"{os.getenv('RAIZ')}brindx_filial\\planilha_brindx_filial.xlsx")
         #Filtrar colunas desejadas 
-        df_bridex_filial["Transportadora"] = "bridex"
+        df_bridex_filial["Transportadora"] = "bridex_filial"
         df_bridex_filial = df_bridex_filial[["notaFiscal","previsaoEntrega","dataEntrega","nomeOcorrencia", "Transportadora"]]
 
         #Tratando coluna notaFiscal
         df_bridex_filial["notaFiscal"] = [str(x.replace(" ","")[-4:]) for x in df_bridex_filial["notaFiscal"]]
-        dataframes.append(df_bridex)
         dataframes.append(df_bridex_filial)
+        planilhas_para_remover.append(f"{os.getenv('RAIZ')}brindx_filial\\planilha_brindx_filial.xlsx")
     except:
         print(format_exc())
         pass
@@ -59,6 +61,7 @@ def tratar_planilhas():
 
         })
         dataframes.append(df_braspres)
+        planilhas_para_remover.append(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx")
     except:
         print(format_exc())
         logging.error(format_exc())
@@ -87,6 +90,7 @@ def tratar_planilhas():
             "Obs" : "nomeOcorrencia"
         })
         dataframes.append(df_controlog)
+        planilhas_para_remover.append(f"{os.getenv('RAIZ')}controlog\\planilha_controlog.xlsx")
     
     except:
         print(format_exc())
@@ -95,6 +99,8 @@ def tratar_planilhas():
     
     planilha_concat = pd.concat(dataframes, ignore_index=False)
     planilha_concat.to_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx", index=False)
+    for x in planilhas_para_remover:
+        os.remove(x)
 
 
 if __name__ == "__main__":
