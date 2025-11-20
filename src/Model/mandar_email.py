@@ -23,7 +23,7 @@ def enviar_email(dados,vendedor):
     except:
         print("Erro ao tentar conectar com planiha")
         exit()
-    receiver = (f'{emails[vendedor]}, janderamancio@gmail.com')
+    receiver = (f'{emails.get(vendedor, "Jmcneto@silicontech.com.br")}, janderamancio@gmail.com,Jmcneto@silicontech.com.br')
     message = MIMEMultipart("alternative")
     message["From"] = usuario
     message["To"] = receiver
@@ -53,7 +53,7 @@ def enviar_email_transporadora(titulo, dados,sender):
     except:
         print("Erro ao tentar conectar com planiha")
         exit()
-    receiver = (f"{sender},janderamancio@gmail.com")
+    receiver = (f"{sender},janderamancio@gmail.com,Jmcneto@silicontech.com.br")
     message = MIMEMultipart("alternative")
     message["From"] = usuario
     message["To"] = receiver

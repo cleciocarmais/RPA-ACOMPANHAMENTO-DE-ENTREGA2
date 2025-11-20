@@ -1,18 +1,17 @@
-import logging
 import os
+import logging
 import pandas as pd
+import gspread as gs
+import pyautogui as p
+from dotenv import load_dotenv
+import gspread_dataframe as gsd
 from traceback import format_exc
-
+from datetime import date, datetime
+from src.Model.tratar_planilha import tratar_planilhas
 from src.Model.armazenamento import alterar_dados, pegar_dados,resertar
 from src.Model.mandar_email import enviar_email, enviar_email_transporadora
 from src.Model.baixa_planilhas_transportadora import baixa_planilhas_transportadoras
-from dotenv import load_dotenv
-from datetime import date, datetime
-from src.Model.tratar_planilha import tratar_planilhas
 
-import gspread as gs
-import gspread_dataframe as gsd
-import pyautogui as p
 
 load_dotenv()
 
@@ -31,7 +30,7 @@ logging.basicConfig(
 logging.info("Iniciando Processo de acompanhamento de entrega")
 print("Iniciando Processo de acompanhamento de entrega")
 
-# df_planilha_online = pd.read_excel(f"{os.getenv('RAIZ')}vamos.xlsx").fillna("")
+
 try:
     # #CONECTANDO A PLANILHA
     gc = gs.service_account(os.getenv("Crendeciais"))
@@ -40,11 +39,12 @@ try:
     df_planilha_online = pd.DataFrame(sheet.get_all_records(), dtype=str)
 
     # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
-    baixa_planilhas_transportadoras("braspres","controlog","bridex")
-    p.sleep(2) 
+    # baixa_planilhas_transportadoras("controlog")
+    # p.sleep(2) 
 
-    tratar_planilhas()
-    # p.alert("GERADO PLANILHA DE DADOS PARA CONSULTA")
+    # tratar_planilhas()
+
+
 
     pd.options.mode.chained_assignment = None
     df_planilha_dados_Entragas = pd.read_excel(f"{os.getenv('RAIZ')}planilha_rota_entregas.xlsx", dtype=str)
@@ -61,7 +61,7 @@ try:
                 print("Pedido encontrado")
                 logging.info("Pedido encontrado")
                 index_busca = df_busca.index[0]
-                print("testes")
+
                 #VERIFICAR SE CAMPO DE PRECISA DE ENTREGA NÃO VAZIO
                 if df_planilha_online['Dt. entrega pedido'][dp] != "":
                     data_previsao =  df_planilha_online["Dt. entrega pedido"][dp]
@@ -150,7 +150,7 @@ try:
 
 
 
-
+    p.alert("verificar")
 
 
     df_email = pd.DataFrame(pegar_dados("codigos_feitos"))
@@ -158,7 +158,7 @@ try:
 
     df_emaii_trans_vazia = df_email.loc[df_email["Status"] == "Sem transportadora"]
     # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"logistica@silicontech.com.br")
-    enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
+    # enviar_email_transporadora("Inserir Transportadores",df_emaii_trans_vazia,"cleciolimalive@gmail.com")
 
     df_outros_status = df_email.loc[df_email["Status"] != "Sem transportadora"]
     vendores = df_outros_status["Representante da venda"].unique()
@@ -166,7 +166,7 @@ try:
     for vendendor in vendores:
         if vendendor != "MANU":
             daddos = df_outros_status.loc[df_outros_status["Representante da venda"] == vendendor]
-            enviar_email(daddos,"clecio")
+            enviar_email(daddos,vendendor)
     resertar()
     
     
@@ -192,7 +192,6 @@ except:
     print(format_exc())
 
 finally:
-    print("fi")
     df_planilha_online = df_planilha_online.astype(str)
     gsd.set_with_dataframe(sheet,df_planilha_online)
     df_planilha_online.to_excel(f"{os.getenv('RAIZ')}vamos2.xlsx", index=False)

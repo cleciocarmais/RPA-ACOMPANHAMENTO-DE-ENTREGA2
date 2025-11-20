@@ -6,7 +6,7 @@ import logging
 import os
 from dotenv import load_dotenv
 
-
+#DESATIVODO
 
 def email_transportadora():
     load_dotenv()

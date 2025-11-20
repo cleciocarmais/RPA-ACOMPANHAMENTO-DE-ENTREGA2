@@ -35,7 +35,8 @@ def tratar_planilhas():
         dataframes.append(df_bridex_filial)
         planilhas_para_remover.append(f"{os.getenv('RAIZ')}brindx_filial\\planilha_brindx_filial.xlsx")
     except:
-        print(format_exc())
+        print("Erro na Brindx")
+        logging.error("Erro na Brindx")
         pass
 
 
@@ -63,8 +64,10 @@ def tratar_planilhas():
         dataframes.append(df_braspres)
         planilhas_para_remover.append(f"{os.getenv('RAIZ')}braspress\\planilha_braspres.xlsx")
     except:
-        print(format_exc())
-        logging.error(format_exc())
+        print("Erro da braspres")
+        logging.error("Erro da braspres")
+        # print(format_exc())
+        # logging.error(format_exc())
         pass
 
     ####################################### CONTROLOG #######################33########################################################
@@ -93,8 +96,10 @@ def tratar_planilhas():
         planilhas_para_remover.append(f"{os.getenv('RAIZ')}controlog\\planilha_controlog.xlsx")
     
     except:
-        print(format_exc())
-        logging.error(format_exc())
+        print("Erro controlog")
+        logging.error("Erro controlog")
+        # print(format_exc())
+        # logging.error(format_exc())
 
     
     planilha_concat = pd.concat(dataframes, ignore_index=False)

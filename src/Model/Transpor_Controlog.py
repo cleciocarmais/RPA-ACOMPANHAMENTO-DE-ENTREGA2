@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import pyautogui as p
 from dotenv import load_dotenv
+from traceback import format_exc
 from selenium import webdriver
 from datetime import date, timedelta
 from selenium.webdriver.common.by import By
@@ -67,7 +68,7 @@ def transportadora_controlog():
         p.sleep(3)
         #CLIQUE EM RELATOPRIO GERAL DE ENTREGAS
         navegador.find_element(By.XPATH, "/html/body/div/div[11]/nav/div/div[2]/ul[1]/li[6]/ul/li[1]/a").click()
-        p.sleep(2)
+        p.sleep(4)
         #SELECT DATA INICIAL
         Elemento1 = navegador.find_element(By.XPATH,"/html/body/div/div[12]/div/div/div[3]/div/nav/div[2]/div/div[11]/div[5]/ul/li[1]/select")
         select_mes_inicial = Select(Elemento1)
@@ -113,8 +114,8 @@ def transportadora_controlog():
 
         select_mes_inicial.select_by_value(mes_inicial)
         select_dia_inicial.select_by_value(dia_inicial)
-        p.sleep(2)
-
+        p.sleep(5)
+      
         select_mes_final.select_by_value(mes_final)
         select_dia_final.select_by_value(dia_final)
     
@@ -156,6 +157,7 @@ def transportadora_controlog():
         navegador.quit()
         p.sleep(2)
     except:
+        print(format_exc())
         pass
 if __name__ == "__main__":
     transportadora_controlog()
