@@ -39,10 +39,10 @@ try:
     df_planilha_online = pd.DataFrame(sheet.get_all_records(), dtype=str)
 
     # p.alert("GERANDO RELATORIO DE TRANSPORTADORA")
-    # baixa_planilhas_transportadoras("controlog")
+    baixa_planilhas_transportadoras("controlog","braspres","bridex")
     # p.sleep(2) 
 
-    # tratar_planilhas()
+    tratar_planilhas()
 
 
 
